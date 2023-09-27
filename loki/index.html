@@ -381,7 +381,7 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
       class="container p-6 md:p-20 bg-yellowlokiMedium rounded-lg mx-auto md:w-[780px] text-grayloki overflow-hidden">
       <h2 class="text-center text-3xl md:text-5xl uppercase text-grayloki font-bold">Contacto</h2>
       <p class="text-darkgreenloki py-5">No seremos Loki, ¡pero también estamos para ayudarte!</p>
-      <form id="contact-form" action="https://dev.loki.api.mindblocks.ai/notifications/email" method="post">
+      <form id="contactForm" action="https://dev.loki.api.mindblocks.ai/notifications/email" method="post">
         <div class="grid grid-cols-1 lg:grid-cols-2">
           <div class="mr-0 lg:mr-3">
             <label for="name" class="block">Nombre</label>
@@ -404,7 +404,7 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
         <br>
         <p id="email-error" class="text-red-500 mb-5 hidden">Mensaje de error</p>
         <p class="text-center">
-          <button data-sitekey="6LeCIFgoAAAAAOeUuh9LiJPG4drCh4EoO9BTn2cb" data-callback='onSubmit' type="submit"
+          <button data-sitekey="6LeCIFgoAAAAAOeUuh9LiJPG4drCh4EoO9BTn2cb" type="submit"
             class="g-recaptcha mx-auto inline-block bg-darkgreenloki text-yellowloki px-6 py-2 rounded-full hover:opacity-80 transition ease-in-out duration-500">Enviar</button>
         </p>
         <p id="email-sent" class="text-amber-600 text-center mt-4 hidden">Mensaje enviado</p>
@@ -422,7 +422,10 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
   </style>
 
   <script>
-    async function onSubmit(token) {
+    document.addEventListener("DOMContentLoaded", function() {
+    const form = document.getElementById("contactForm");
+
+    form.addEventListener("submit", async function(event) {
       event.preventDefault(); // Prevent the default form submission
 
         const formData = new FormData(form);
