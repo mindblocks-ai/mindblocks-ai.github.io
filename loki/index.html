@@ -1,344 +1,464 @@
 <!doctype html>
 <html lang="es" class="scroll-smooth">
+
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Loki - Mindblocks </title>
-<meta name="description" content="Desbloquea todo el poder de ChatGPT desde tu Whatsapp con Loki.">
-<meta name="keywords" content="Loki, ChatGPT, Whatsapp, asistente, asistente virtual, Mindblocks">
-<meta property="og:title" content="Loki - Mindblocks ">
-<meta property="og:url" content="">
-<meta property="og:type" content="">
-<meta property="og:description" content="Desbloquea todo el poder de ChatGPT desde tu Whatsapp con Loki. ¡No pierdas más tiempo en tareas cotidianas! 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loki - Mindblocks </title>
+  <meta name="description" content="Desbloquea todo el poder de ChatGPT desde tu Whatsapp con Loki.">
+  <meta name="keywords" content="Loki, ChatGPT, Whatsapp, asistente, asistente virtual, Mindblocks">
+  <meta property="og:title" content="Loki - Mindblocks ">
+  <meta property="og:url" content="">
+  <meta property="og:type" content="">
+  <meta property="og:description" content="Desbloquea todo el poder de ChatGPT desde tu Whatsapp con Loki. ¡No pierdas más tiempo en tareas cotidianas! 
 Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder de ChatGPT en tu Whatsapp. ">
 
-<!--ICONS-->
-<link rel="shortcut icon" href="images/favicon.ico">
-<link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
+  <!--ICONS-->
+  <link rel="shortcut icon" href="images/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
 
-<!--FONTS-->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;700&display=swap" rel="stylesheet">
+  <!--FONTS-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;700&display=swap" rel="stylesheet">
 
-<!--TAILWINDCSS--> 
-<script src="https://cdn.tailwindcss.com"></script> 
-<script>
+  <!--TAILWINDCSS-->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://www.google.com/recaptcha/api.js"></script>
+  <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
             grayloki: '#222f3b',
-			graylokiMedium: '#35424d',
-			yellowloki: '#fdf8d4',
-			yellowlokiMedium: '#f4efcb', 
-			yellowlokiDark: '#dfe1bf', 
-			greenloki: '#3eb870',
-			darkgreenloki: '#0f826a',
-			goldloki: '#e6bd59', 
-			blackloki:'#121518',  
+            graylokiMedium: '#35424d',
+            yellowloki: '#fdf8d4',
+            yellowlokiMedium: '#f4efcb',
+            yellowlokiDark: '#dfe1bf',
+            greenloki: '#3eb870',
+            darkgreenloki: '#0f826a',
+            goldloki: '#e6bd59',
+            blackloki: '#121518',
           },
-       	  fontFamily: {
-      		sans: ['Alexandria', 'sans-serif'],
-    	  },
+          fontFamily: {
+            sans: ['Alexandria', 'sans-serif'],
+          },
 
-		  backgroundImage: {
-           'hero': "url('images/background.jpg')",
-		   'bottom': "url('images/line.svg')",
-		   'points': "url('images/points.png')", 
-		   'header': "url('images/bg-header.svg')", 
-         }
-        }  
-      }	
+          backgroundImage: {
+            'hero': "url('images/background.jpg')",
+            'bottom': "url('images/line.svg')",
+            'points': "url('images/points.png')",
+            'header': "url('images/bg-header.svg')",
+          }
+        }
+      }
     }
-</script> 
+  </script>
 
-<!--COLLAPSE CSS-->
-<style>
-.collapsible { padding-left: 18px; position: relative;}
-.collapsible:before { content: '\002B'; color: #e6bd59; font-weight: bold; float: left; margin-right:8px; font-size: 30px; vertical-align: middle; padding-bottom: 5px; position: absolute; left:-5px; top:0px;}
-.active:before { content: "\2212";}
-</style>	
-	
+  <!--COLLAPSE CSS-->
+  <style>
+    .collapsible {
+      padding-left: 18px;
+      position: relative;
+    }
+
+    .collapsible:before {
+      content: '\002B';
+      color: #e6bd59;
+      font-weight: bold;
+      float: left;
+      margin-right: 8px;
+      font-size: 30px;
+      vertical-align: middle;
+      padding-bottom: 5px;
+      position: absolute;
+      left: -5px;
+      top: 0px;
+    }
+
+    .active:before {
+      content: "\2212";
+    }
+  </style>
+
 
 </head>
+
 <body class="bg-grayloki font-sans bg-hero bg-auto bg-no-repeat bg-top">
 
-<!--Header Start-->
-<header class="mx-auto sticky top-0 z-50 bg-header bg-top bg-repeat-x">
-  <nav class="drop-shadow-lg  lg:filter-none  bg-grayloki md:bg-transparent">
-    <div class="">
-      <div class="flex justify-between w-full py-2 md:py-4 px-3 lg:px-4">
-        <div class="flex justify-between w-full"> 
-          <!-- Website Logo -->
-          <div class="items-center"><a href="#"><img src="images/logo-loki.svg" width="125" height="59" alt="Loki"></a></div>
-          
-          <!-- Primary Navbar items -->
-          <ul class="flex hidden md:flex items-center">
-            <li><a href="index.html" class="text-yellowloki hover:text-goldloki">Inicio</a></li>
-            <li><a href="#funcionalidades" class="text-yellowloki ml-8 hover:text-goldloki">Funcionalidades</a></li>
-            <li><a href="#planes" class="text-yellowloki ml-8 hover:text-goldloki">Planes</a></li>
-            <li><a href="#faqs" class="text-yellowloki ml-8 hover:text-goldloki" >Faqs</a></li>
-            <li><a href="#contacto" class="text-yellowloki ml-8 hover:text-goldloki">Contacto</a></li>
-          </ul>
-        </div>
-        
-        <!-- Mobile menu button -->
-        <div class="md:hidden flex items-center">
-          <button class="outline-none mobile-menu-button">
-          <svg class="w-8 h-8 text-yellowloki hover:text-greenloki" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
-            <path d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-          </button>
-        </div>
-      </div>
-    </div>
-    
-    <!-- mobile menu -->
-    <div class="hidden mobile-menu">
-      <ul class="bg-grayloki">
-        <li><a href="index.html" class="block px-4 py-4 bg-grayloki text-yellowloki hover:bg-greenloki transition duration-300">Inicio</a></li>
-        <li><a href="#funcionalidades" class="block px-4 py-4 text-yellowloki hover:bg-greenloki transition duration-300">Funcionalidades</a></li>
-        <li><a href="#planes" class="block px-4 py-4 text-yellowloki hover:bg-greenloki transition duration-300">Planes</a></li>
-        <li><a href="#faqs" class="block px-4 py-4 text-yellowloki hover:bg-greenloki transition duration-300">Faqs</a></li>
-        <li><a href="#contacto" class="block px-4 py-4 text-yellowloki hover:bg-greenloki transition duration-300">Contacto</a></li>
-      </ul>
-    </div>
-  </nav>
-</header>
-<!--Header End-->
+  <!--Header Start-->
+  <header class="mx-auto sticky top-0 z-50 bg-header bg-top bg-repeat-x">
+    <nav class="drop-shadow-lg  lg:filter-none  bg-grayloki md:bg-transparent">
+      <div class="">
+        <div class="flex justify-between w-full py-2 md:py-4 px-3 lg:px-4">
+          <div class="flex justify-between w-full">
+            <!-- Website Logo -->
+            <div class="items-center"><a href="#"><img src="images/logo-loki.svg" width="125" height="59"
+                  alt="Loki"></a></div>
 
-<div class="container mx-auto max-w-screen-lg relative top-8 lg:top-24 px-6 lg:px-0"> 
-  
-  <!--Main Content Start-->
-  <section data-aos="fade-down" data-aos-duration="1000"  class="grid grid-cols-1 lg:grid-cols-2 gap-10 z-15">
-    <div  class="relative" ><img src="images/loki-avatar.svg" class="mx-auto -mb-20 lg:-mb-32 relative z-20 lg:m-0 lg:absolute lg:top-24 lg:-right-10" width="203" height="205" alt="Loki avantar"><img src="images/phone.svg" class="mx-auto relative min-w-full sm:min-w-0 max-w-453 z-10 lg:m-0 lg:-left-7" width="453" height="746" alt="phone image"></div>
-    <div  class="relative mx-auto lg:m-0 max-w-screen-sm lg:max-w-none top-0 lg:mt-36 lg:ml-10 text-center lg:text-left">
-      <h1 class="text-yellowloki text-3xl font-bold my-4 leading-10">Desbloquea todo el poder de ChatGPT desde tu Whatsap con Loki.</h1>
-      <h2 class="text-yellowloki text-lg font-light">¡No pierdas más tiempo en tareas cotidianas! 
-        Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder de ChatGPT en tu Whatsapp. </h2>
-      <br>
-      <a href="#" target="_blank" class="bg-greenloki text-lg md:text-base px-6 py-3 my-4 inline-block rounded-full shadow-lg hover:opacity-70 transition ease-in-out duration-500"><img src="images/whatsapp-icon.svg" alt="" width="26" height="26" class="float-left mr-3">¡Enviale un mensaje!</a> </div>
-  </section>
-  <!--Main Content End--> 
-  
-  <!--Second Content start-->
-  <section data-aos="fade" data-aos-duration="2000" class="relative">
-    <div id="funcionalidades" class="absolute -mt-14 lg:mt-2"></div>
-    <div class="grid grid-cols-1 lg:grid-cols-2 mt-6 lg:pt-32 gap-0 mb-8 lg:mb-8">
-      <div class="mx-auto lg:m-0 max-w-screen-sm lg:col-start-1">
-        <h3 class="text-yellowloki text-3xl lg:text-5xl font-bold mt-12 lg:mt-4 mb-6 lg:mb-10 leading-10">FUNCIONALIDADES</h3>
-        <p class="text-yellowloki font-light text-lg">Gracias a la inteligencia artificial y su modo natural de comunicarse, Loki puede ayudarte con cualquier tarea, desde hacer una lista de compras hasta proporcionarte consejos personalizados para mejorar tu estilo de vida. Sólo necesitás enviarle un mensaje de texto o de voz a través de WhatsApp y él estará allí para facilitarte todo lo que necesitás.</p>
-        <h4 class="text-yellowloki my-4 text-lg font-bold mb-6">¡No te quedes solo en tus tareas diarias! <br>
-          <span class="text-xl">Probá a Loki ahora y descubrí todo lo que puede hacer por vos.</span></h4>
-      </div>
-      <div class="relative lg:col-start-2 text-center row-span-1"><img src="images/icon-3.svg" class=" inline-block lg:absolute lg:top-2 right-64 z-10" width="75" height="75" alt=""> <img src="images/icon-1.svg" class=" inline-block lg:absolute lg:top-24 right-80 z-10" width="75" height="75" alt=""> <img src="images/icon-2.svg" class=" inline-block lg:absolute lg:top-52 right-80 z-10" width="75" height="75" alt=""> <img src="images/icon-4.svg" class="inline-block lg:absolute lg:top-72 right-64 z-10" width="75" height="75" alt=""> <img src="images/image.webp" class="lg:absolute mx-auto min-w-full sm:min-w-0 mt-6 lg:mt-0 lg:m-0 mb-10 z-0 right-0" width="367" height="367" alt=""> </div>
-    </div>
-    <div class="grid grid-cols-1 lg:grid-cols-3 w-full gap-12 mb-12">
-      <div>
-        <h5 class="text-goldloki text-lg font-bold mb-3">Resúmenes / Transcripciones</h5>
-        <p class="text-yellowloki font-light" >Resumí cualquier texto en el momento o transcribí audios si no podés (o no querés) escucharlos.</p>
-      </div>
-      <div>
-        <h5 class="text-goldloki text-lg font-bold mb-3">Idiomas</h5>
-        <p class="text-yellowloki font-light">Aprendé el idioma que quieras en cualquier momento, conocé las frases básicas para usar en tu próximo destino turístico o realizá traducciones en tiempo real. </p>
-      </div>
-      <div>
-        <h5 class="text-goldloki text-lg font-bold mb-3">Entretenimiento</h5>
-        <p class="text-yellowloki font-light">Consultá recomendaciones de películas y libros según tus preferencias, sacate todas las dudas sobre cultura general o el tema que sea.</p>
-      </div>
-      <div>
-        <h5 class="text-goldloki text-lg font-bold mb-3">Trabajo y emprendimientos</h5>
-        <p class="text-yellowloki font-light">Redactá y corregí tus correos laborales, resolvé las dudas que tengas con herramientas como excel o aprovechá para arrancar tu propio emprendimiento, con un plan de inicio, marketing, redes y todo lo que necesites.</p>
-      </div>
-      <div>
-        <h5 class="text-goldloki text-lg font-bold mb-3">Viajes</h5>
-        <p class="text-yellowloki font-light">Planificá el viaje de tus sueños, conocé sobre tu próximo destino turístico o aprendé sobre las costumbres y culturas del lugar que quieras visitar.</p>
-      </div>
-      <div>
-        <h5 class="text-goldloki text-lg font-bold mb-3">Cocina</h5>
-        <p class="text-yellowloki font-light">Conocé recetas para cocinar con lo que tenés en la heladera, armá tu plan de comidas semanal según tus preferencias y restricciones, o calculá el valor nutricional de lo que estás por comer.</p>
-      </div>
-    </div>
-  </section>
-  <!--Second Content End--> 
-  
-  <!--Plan Start-->
-  <section data-aos="fade" data-aos-duration="2000" class="reltive">
-    <div id="planes" class="absolute -mt-14 lg:mt-4"></div>
-    <div class="grid py-6 pb-16 lg:py-32 bg-points bg-center bg-top bg-no-repeat">
-      <h1 class="text-yellowloki text-3xl lg:text-5xl font-bold mt-8 lg:mt-4 mb-4 lg:mb-4 leading-10 text-center"> ELIGE TU PLAN</h1>
-      <p class="text-yellowloki font-light text-lg text-center md:w-2/3 mx-auto mb-4 lg:mb-8 ">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-      <p class="text-center w-full md:w-2/3 mx-auto"><a href="#" class="mx-auto inline-block bg-yellowloki text-grayloki px-6 py-2 rounded-full 
-				 transition ease-in-out duration-500" >Mensual</a> <a href="#" class="mx-auto inline-block border text-yellowloki border-yellowloki px-6 py-2 ml-4 rounded-full hover:bg-yellowloki hover:text-grayloki transition ease-in-out duration-500">Anual</a></p>
-      <div class="grid grid-cols-1 w-full sm:w-9/12 md:w-1/2 lg:w-full lg:grid-cols-3 gap-0 mt-0 lg:mt-14 mx-auto gap-y-10">
-        <div class="bg-graylokiMedium rounded-2xl lg:rounded-r-none p-8 p-9 text-center mt-14">
-          <h2 class="text-goldloki font-bold text-2xl mb-12">Gratis</h2>
-          <p class="text-yellowloki text-2xl">U$D <span class="font-bold text-5xl">0</span> /mes</p>
-          <ul class="text-left text-yellowloki font-normal list-image-[url(images/check.svg)] list-outside marker:text-4xl ml-8 mt-10 mb-10">
-            <li>Interacciones permitidas: <br>
-              3000 palabras/mes aprox. </li>
-            <li>Minutos de audio permitidos: <br>
-              3 min/mes aprox.</li>
-          </ul>
-          <a href="#" class="mx-auto inline-block border text-xl font-bold text-goldloki border-goldloki px-6 py-2 rounded-full hover:bg-goldloki hover:text-grayloki transition ease-in-out duration-500">Empezar</a> </div>
-        <div class="bg-yellowloki rounded-2xl text-center lg:-mb-8">
-          <h3 class="bg-greenloki text-yellowloki rounded-t-2xl pt-4 pb-3 tracking-wide text-xl">MÁS POPULAR</h3>
-          <div class="px-8 pt-8 pb-8 lg:pb-14 rounded-2xl lg:rounded-b-2xl bg-yellowloki">
-            <h2 class="text-greenloki font-bold text-2xl mb-4">Premium</h2>
-            <p class="text-grayloki line-through text-2xl">U$D <strong>13</strong></p>
-            <p class="text-grayloki text-2xl">U$D <span class="font-bold text-5xl">8.99</span> /mes</p>
-            <p class="text-greenloki font-bold text-lg">OFERTA LANZAMIENTO</p>
-            <ul class="text-left text-grayloki font-normal list-image-[url(images/check.svg)] list-outside marker:text-4xl ml-8 mt-4 mb-10">
-              <li>Interacciones permitidas: <br>
-                750.000 palabras/mes aprox. </li>
-              <li>Minutos de audio permitidos: <br>
-                60 min/mes aprox.</li>
+            <!-- Primary Navbar items -->
+            <ul class="flex hidden md:flex items-center">
+              <li><a href="index.html" class="text-yellowloki hover:text-goldloki">Inicio</a></li>
+              <li><a href="#funcionalidades" class="text-yellowloki ml-8 hover:text-goldloki">Funcionalidades</a></li>
+              <li><a href="#planes" class="text-yellowloki ml-8 hover:text-goldloki">Planes</a></li>
+              <li><a href="#faqs" class="text-yellowloki ml-8 hover:text-goldloki">Faqs</a></li>
+              <li><a href="#contacto" class="text-yellowloki ml-8 hover:text-goldloki">Contacto</a></li>
             </ul>
-            <a href="#" class="mx-auto inline-block border text-xl font-bold text-yellowloki bg-greenloki px-6 py-2 rounded-full hover:opacity-80 transition ease-in-out duration-500">Contratar</a></div>
+          </div>
+
+          <!-- Mobile menu button -->
+          <div class="md:hidden flex items-center">
+            <button class="outline-none mobile-menu-button">
+              <svg class="w-8 h-8 text-yellowloki hover:text-greenloki" fill="none" stroke-linecap="round"
+                stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" stroke="currentColor">
+                <path d="M4 6h16M4 12h16M4 18h16"></path>
+              </svg>
+            </button>
+          </div>
         </div>
-        <div class="bg-graylokiMedium rounded-2xl lg:rounded-l-none p-8 text-center lg:mt-14">
-          <h2 class="text-greenloki font-bold text-2xl mb-4">Empresarial</h2>
-          <p class="text-yellowloki line-through text-2xl">U$D <strong>40</strong></p>
-          <p class="text-yellowloki text-2xl">U$D <span class="font-bold text-5xl">27.90</span> /mes</p>
-          <p class="text-greenloki font-bold text-lg">OFERTA LANZAMIENTO</p>
-          <ul class="text-left text-yellowloki font-normal list-image-[url(images/check.svg)] list-outside marker:text-4xl ml-8 mt-4 mb-10">
-            <li>Interacciones permitidas: <br>
-              3.750.000 palabras/mes aprox. </li>
-            <li>Minutos de audio permitidos: <br>
-              180 min/mes aprox.</li>
-          </ul>
-          <a href="#" class="mx-auto inline-block border text-xl font-bold text-greenloki border-greenloki px-6 py-2 rounded-full hover:bg-greenloki hover:text-grayloki transition ease-in-out duration-500">Contratar</a> </div>
       </div>
+
+      <!-- mobile menu -->
+      <div class="hidden mobile-menu">
+        <ul class="bg-grayloki">
+          <li><a href="index.html"
+              class="block px-4 py-4 bg-grayloki text-yellowloki hover:bg-greenloki transition duration-300">Inicio</a>
+          </li>
+          <li><a href="#funcionalidades"
+              class="block px-4 py-4 text-yellowloki hover:bg-greenloki transition duration-300">Funcionalidades</a>
+          </li>
+          <li><a href="#planes"
+              class="block px-4 py-4 text-yellowloki hover:bg-greenloki transition duration-300">Planes</a></li>
+          <li><a href="#faqs"
+              class="block px-4 py-4 text-yellowloki hover:bg-greenloki transition duration-300">Faqs</a></li>
+          <li><a href="#contacto"
+              class="block px-4 py-4 text-yellowloki hover:bg-greenloki transition duration-300">Contacto</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+  <!--Header End-->
+
+  <div class="container mx-auto max-w-screen-lg relative top-8 lg:top-24 px-6 lg:px-0">
+
+    <!--Main Content Start-->
+    <section data-aos="fade-down" data-aos-duration="1000" class="grid grid-cols-1 lg:grid-cols-2 gap-10 z-15">
+      <div class="relative"><img src="images/loki-avatar.svg"
+          class="mx-auto -mb-20 lg:-mb-32 relative z-20 lg:m-0 lg:absolute lg:top-24 lg:-right-10" width="203"
+          height="205" alt="Loki avantar"><img src="images/phone.svg"
+          class="mx-auto relative min-w-full sm:min-w-0 max-w-453 z-10 lg:m-0 lg:-left-7" width="453" height="746"
+          alt="phone image"></div>
+      <div
+        class="relative mx-auto lg:m-0 max-w-screen-sm lg:max-w-none top-0 lg:mt-36 lg:ml-10 text-center lg:text-left">
+        <h1 class="text-yellowloki text-3xl font-bold my-4 leading-10">Desbloquea todo el poder de ChatGPT desde tu
+          Whatsap con Loki.</h1>
+        <h2 class="text-yellowloki text-lg font-light">¡No pierdas más tiempo en tareas cotidianas!
+          Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder de ChatGPT en tu Whatsapp.
+        </h2>
+        <br>
+        <a href="#" target="_blank"
+          class="bg-greenloki text-lg md:text-base px-6 py-3 my-4 inline-block rounded-full shadow-lg hover:opacity-70 transition ease-in-out duration-500"><img
+            src="images/whatsapp-icon.svg" alt="" width="26" height="26" class="float-left mr-3">¡Enviale un
+          mensaje!</a>
+      </div>
+    </section>
+    <!--Main Content End-->
+
+    <!--Second Content start-->
+    <section data-aos="fade" data-aos-duration="2000" class="relative">
+      <div id="funcionalidades" class="absolute -mt-14 lg:mt-2"></div>
+      <div class="grid grid-cols-1 lg:grid-cols-2 mt-6 lg:pt-32 gap-0 mb-8 lg:mb-8">
+        <div class="mx-auto lg:m-0 max-w-screen-sm lg:col-start-1">
+          <h3 class="text-yellowloki text-3xl lg:text-5xl font-bold mt-12 lg:mt-4 mb-6 lg:mb-10 leading-10">
+            FUNCIONALIDADES</h3>
+          <p class="text-yellowloki font-light text-lg">Gracias a la inteligencia artificial y su modo natural de
+            comunicarse, Loki puede ayudarte con cualquier tarea, desde hacer una lista de compras hasta proporcionarte
+            consejos personalizados para mejorar tu estilo de vida. Sólo necesitás enviarle un mensaje de texto o de voz
+            a través de WhatsApp y él estará allí para facilitarte todo lo que necesitás.</p>
+          <h4 class="text-yellowloki my-4 text-lg font-bold mb-6">¡No te quedes solo en tus tareas diarias! <br>
+            <span class="text-xl">Probá a Loki ahora y descubrí todo lo que puede hacer por vos.</span>
+          </h4>
+        </div>
+        <div class="relative lg:col-start-2 text-center row-span-1"><img src="images/icon-3.svg"
+            class=" inline-block lg:absolute lg:top-2 right-64 z-10" width="75" height="75" alt=""> <img
+            src="images/icon-1.svg" class=" inline-block lg:absolute lg:top-24 right-80 z-10" width="75" height="75"
+            alt=""> <img src="images/icon-2.svg" class=" inline-block lg:absolute lg:top-52 right-80 z-10" width="75"
+            height="75" alt=""> <img src="images/icon-4.svg" class="inline-block lg:absolute lg:top-72 right-64 z-10"
+            width="75" height="75" alt=""> <img src="images/image.webp"
+            class="lg:absolute mx-auto min-w-full sm:min-w-0 mt-6 lg:mt-0 lg:m-0 mb-10 z-0 right-0" width="367"
+            height="367" alt=""> </div>
+      </div>
+      <div class="grid grid-cols-1 lg:grid-cols-3 w-full gap-12 mb-12">
+        <div>
+          <h5 class="text-goldloki text-lg font-bold mb-3">Resúmenes / Transcripciones</h5>
+          <p class="text-yellowloki font-light">Resumí cualquier texto en el momento o transcribí audios si no podés (o
+            no querés) escucharlos.</p>
+        </div>
+        <div>
+          <h5 class="text-goldloki text-lg font-bold mb-3">Idiomas</h5>
+          <p class="text-yellowloki font-light">Aprendé el idioma que quieras en cualquier momento, conocé las frases
+            básicas para usar en tu próximo destino turístico o realizá traducciones en tiempo real. </p>
+        </div>
+        <div>
+          <h5 class="text-goldloki text-lg font-bold mb-3">Entretenimiento</h5>
+          <p class="text-yellowloki font-light">Consultá recomendaciones de películas y libros según tus preferencias,
+            sacate todas las dudas sobre cultura general o el tema que sea.</p>
+        </div>
+        <div>
+          <h5 class="text-goldloki text-lg font-bold mb-3">Trabajo y emprendimientos</h5>
+          <p class="text-yellowloki font-light">Redactá y corregí tus correos laborales, resolvé las dudas que tengas
+            con herramientas como excel o aprovechá para arrancar tu propio emprendimiento, con un plan de inicio,
+            marketing, redes y todo lo que necesites.</p>
+        </div>
+        <div>
+          <h5 class="text-goldloki text-lg font-bold mb-3">Viajes</h5>
+          <p class="text-yellowloki font-light">Planificá el viaje de tus sueños, conocé sobre tu próximo destino
+            turístico o aprendé sobre las costumbres y culturas del lugar que quieras visitar.</p>
+        </div>
+        <div>
+          <h5 class="text-goldloki text-lg font-bold mb-3">Cocina</h5>
+          <p class="text-yellowloki font-light">Conocé recetas para cocinar con lo que tenés en la heladera, armá tu
+            plan de comidas semanal según tus preferencias y restricciones, o calculá el valor nutricional de lo que
+            estás por comer.</p>
+        </div>
+      </div>
+    </section>
+    <!--Second Content End-->
+
+    <!--Plan Start-->
+    <section data-aos="fade" data-aos-duration="2000" class="reltive">
+      <div id="planes" class="absolute -mt-14 lg:mt-4"></div>
+      <div class="grid py-6 pb-16 lg:py-32 bg-points bg-center bg-top bg-no-repeat">
+        <h1 class="text-yellowloki text-3xl lg:text-5xl font-bold mt-8 lg:mt-4 mb-4 lg:mb-4 leading-10 text-center">
+          ELIGE TU PLAN</h1>
+        <p class="text-yellowloki font-light text-lg text-center md:w-2/3 mx-auto mb-4 lg:mb-8 ">Lorem ipsum dolor sit
+          amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
+        <p class="text-center w-full md:w-2/3 mx-auto"><a href="#" class="mx-auto inline-block bg-yellowloki text-grayloki px-6 py-2 rounded-full 
+				 transition ease-in-out duration-500">Mensual</a> <a href="#"
+            class="mx-auto inline-block border text-yellowloki border-yellowloki px-6 py-2 ml-4 rounded-full hover:bg-yellowloki hover:text-grayloki transition ease-in-out duration-500">Anual</a>
+        </p>
+        <div
+          class="grid grid-cols-1 w-full sm:w-9/12 md:w-1/2 lg:w-full lg:grid-cols-3 gap-0 mt-0 lg:mt-14 mx-auto gap-y-10">
+          <div class="bg-graylokiMedium rounded-2xl lg:rounded-r-none p-8 p-9 text-center mt-14">
+            <h2 class="text-goldloki font-bold text-2xl mb-12">Gratis</h2>
+            <p class="text-yellowloki text-2xl">U$D <span class="font-bold text-5xl">0</span> /mes</p>
+            <ul
+              class="text-left text-yellowloki font-normal list-image-[url(images/check.svg)] list-outside marker:text-4xl ml-8 mt-10 mb-10">
+              <li>Interacciones permitidas: <br>
+                3000 palabras/mes aprox. </li>
+              <li>Minutos de audio permitidos: <br>
+                3 min/mes aprox.</li>
+            </ul>
+            <a href="#"
+              class="mx-auto inline-block border text-xl font-bold text-goldloki border-goldloki px-6 py-2 rounded-full hover:bg-goldloki hover:text-grayloki transition ease-in-out duration-500">Empezar</a>
+          </div>
+          <div class="bg-yellowloki rounded-2xl text-center lg:-mb-8">
+            <h3 class="bg-greenloki text-yellowloki rounded-t-2xl pt-4 pb-3 tracking-wide text-xl">MÁS POPULAR</h3>
+            <div class="px-8 pt-8 pb-8 lg:pb-14 rounded-2xl lg:rounded-b-2xl bg-yellowloki">
+              <h2 class="text-greenloki font-bold text-2xl mb-4">Premium</h2>
+              <p class="text-grayloki line-through text-2xl">U$D <strong>13</strong></p>
+              <p class="text-grayloki text-2xl">U$D <span class="font-bold text-5xl">8.99</span> /mes</p>
+              <p class="text-greenloki font-bold text-lg">OFERTA LANZAMIENTO</p>
+              <ul
+                class="text-left text-grayloki font-normal list-image-[url(images/check.svg)] list-outside marker:text-4xl ml-8 mt-4 mb-10">
+                <li>Interacciones permitidas: <br>
+                  750.000 palabras/mes aprox. </li>
+                <li>Minutos de audio permitidos: <br>
+                  60 min/mes aprox.</li>
+              </ul>
+              <a href="#"
+                class="mx-auto inline-block border text-xl font-bold text-yellowloki bg-greenloki px-6 py-2 rounded-full hover:opacity-80 transition ease-in-out duration-500">Contratar</a>
+            </div>
+          </div>
+          <div class="bg-graylokiMedium rounded-2xl lg:rounded-l-none p-8 text-center lg:mt-14">
+            <h2 class="text-greenloki font-bold text-2xl mb-4">Empresarial</h2>
+            <p class="text-yellowloki line-through text-2xl">U$D <strong>40</strong></p>
+            <p class="text-yellowloki text-2xl">U$D <span class="font-bold text-5xl">27.90</span> /mes</p>
+            <p class="text-greenloki font-bold text-lg">OFERTA LANZAMIENTO</p>
+            <ul
+              class="text-left text-yellowloki font-normal list-image-[url(images/check.svg)] list-outside marker:text-4xl ml-8 mt-4 mb-10">
+              <li>Interacciones permitidas: <br>
+                3.750.000 palabras/mes aprox. </li>
+              <li>Minutos de audio permitidos: <br>
+                180 min/mes aprox.</li>
+            </ul>
+            <a href="#"
+              class="mx-auto inline-block border text-xl font-bold text-greenloki border-greenloki px-6 py-2 rounded-full hover:bg-greenloki hover:text-grayloki transition ease-in-out duration-500">Contratar</a>
+          </div>
+        </div>
+      </div>
+      <div class="clear-both"></div>
+    </section>
+    <!--Plan End-->
+  </div>
+
+  <!--Faqs Start-->
+  <section class="bg-darkgreenloki py-8 lg:py-32 mt-10 lg:mt-44 bg-points bg-top bg-center bg-no-repeat relative">
+    <div id="faqs" class="absolute -mt-20"></div>
+    <div data-aos="fade" data-aos-duration="2000"
+      class="container mx-auto max-w-screen-lg relative py-6 md:py-4 px-6 lg:px-4 text-left md:w-[780px]">
+      <h1 class="text-yellowloki text-3xl lg:text-5xl font-bold mt-2 lg:mt-4 mb-8 lg:mb-8 leading-10"> FAQS</h1>
+      <div class="border-t border-yellowloki my-4 opacity-40 clear-both"></div>
+      <button type="button" class="collapsible text-yellowloki text-lg text-left font-bold">¿El uso de Loki es
+        gratis?</button>
+      <div class="content hidden text-yellowloki transition ease-in-out duration-500">
+        <p class="font-light pl-5 pt-3">Sí, Loki posee un modo gratuito, cuyas interacciones están limitadas de forma
+          mensual. Para hacer uso ilimitado de Loki, es necesario adquirir una suscripción de las mencionadas en el
+          siguiente [apartado].</p>
+      </div>
+      <div class="border-t border-yellowloki my-4 opacity-40"></div>
+      <button type="button" class="collapsible text-yellowloki text-lg text-left font-bold">¿Cómo puedo contactarme con
+        Loki?</button>
+      <div class="content hidden text-yellowloki transition ease-in-out duration-500">
+        <p class="font-light pl-5 pt-3">Muy fácil, sólo tenés que agregarlo en tus contactos y enviarle un mensaje de
+          whatsapp. (Podés hacerlo con el link en la parte superior).</p>
+      </div>
+      <div class="border-t border-yellowloki my-4 opacity-40"></div>
+      <button type="button" class="collapsible text-yellowloki text-lg text-left font-bold">¿Sí o sí tengo que
+        escribirle a Loki?</button>
+      <div class="content hidden text-yellowloki transition ease-in-out duration-500">
+        <p class="font-light pl-5 pt-3">No, podés utilizar mensajes de voz, ya sean grabados por vos o reenviados, no
+          hay ningún inconveniente. Esto vale no sólo para darle instrucciones, sino también para que los utilice (por
+          ejemplo para solicitarle resúmenes, transcripciones, etc..).</p>
+      </div>
+      <div class="border-t border-yellowloki my-4 opacity-40"></div>
+      <button type="button" class="collapsible text-yellowloki text-lg text-left font-bold">¿Qué puedo preguntarle a
+        Loki?</button>
+      <div class="content hidden text-yellowloki transition ease-in-out duration-500">
+        <p class="font-light pl-5 pt-3"> En cuanto lo contactes, Loki va a ofrecerte un tutorial con ideas y el paso a
+          paso para que puedas aprovechar todo su potencial! También podés ingresar al menú de ayuda enviando el símbolo
+          “?”.</p>
+      </div>
+      <div class="border-t border-yellowloki my-4 opacity-40"></div>
+      <button type="button" class="collapsible text-yellowloki text-lg text-left font-bold">¿Cómo funciona
+        Loki?</button>
+      <div class="content hidden text-yellowloki transition ease-in-out duration-500">
+        <p class="font-light pl-5 pt-3">Loki es una inteligencia artificial basada en ChatGPT, básicamente es un robot
+          que puede contestar a preguntas complejas entendiendo el significado y contexto de las palabras, lo cual lo
+          convierte en un asistente ideal. Tiene muchísima información y conocimiento, por eso es capaz de ayudarte de
+          forma eficiente. A su vez, puede interpretar varios comandos que le permiten por ejemplo, transformarse en
+          otra persona que elijas (para más detalle, revisá el tutorial).</p>
+      </div>
+      <div class="border-t border-yellowloki my-4 opacity-40"></div>
+      <button type="button" class="collapsible text-yellowloki text-lg text-left font-bold">¿Desde qué país puedo
+        adquirir una suscripción?</button>
+      <div class="content hidden text-yellowloki transition ease-in-out duration-500">
+        <p class="font-light pl-5 pt-3">Por el momento sólo desde Uruguay, pero tenemos planes de expandirnos a toda
+          Latinoamérica.</p>
+      </div>
+      <div class="border-t border-yellowloki my-4 opacity-40"></div>
+      <button type="button" class="collapsible text-yellowloki text-lg text-left font-bold">¿Puedo cancelar mi
+        suscripción en cualquier momento?</button>
+      <div class="content hidden text-yellowloki transition ease-in-out duration-500">
+        <p class="font-light pl-5 pt-3">Si, podrás cancelar la suscripción cuando gustes y no se te cobrará el siguiente
+          mes. Esta vencerá al finalizar el mes corriente por lo que podrás seguir usando tu membresía hasta ese
+          momento.</p>
+      </div>
+      <div class="border-t border-yellowloki my-4 opacity-40 "></div>
+      <button type="button" class="collapsible text-yellowloki text-lg text-left font-bold">¿Qué limitaciones tiene
+        Loki?</button>
+      <div class="content hidden text-yellowloki transition ease-in-out duration-500">
+        <p class="font-light pl-5 pt-3">Al estar basado en ChatGPT, Loki comparte sus limitaciones. Por ejemplo, sólo
+          posee información hasta Septiembre 2021 y no es capaz de interpretar imágenes o archivos (por ahora). Para más
+          información sobre estas limitaciones, podés acceder a https://openai.com/blog/chatgpt.</p>
+      </div>
+      <div class="border-t border-yellowloki my-4 opacity-40"></div>
+      <button type="button" class="collapsible text-yellowloki text-lg text-left font-bold">¿Cómo puedo ponerme en
+        contacto si tengo dudas o un problema?</button>
+      <div class="content hidden text-yellowloki transition ease-in-out duration-500">
+        <p class="font-light pl-5 pt-3">Podés utilizar el formulario que se encuentra al pie de la página o enviándonos
+          un correo a loki.chat@mindblocks.ai.</p>
+      </div>
+      <div class="border-t border-yellowloki my-4 opacity-40"></div>
     </div>
-    <div class="clear-both"></div>
   </section>
-  <!--Plan End--> 
-</div>
+  <!--Faqs End-->
 
-<!--Faqs Start-->
-<section class="bg-darkgreenloki py-8 lg:py-32 mt-10 lg:mt-44 bg-points bg-top bg-center bg-no-repeat relative">
-  <div id="faqs" class="absolute -mt-20"></div>
-  <div data-aos="fade" data-aos-duration="2000" class="container mx-auto max-w-screen-lg relative py-6 md:py-4 px-6 lg:px-4 text-left md:w-[780px]">
-    <h1 class="text-yellowloki text-3xl lg:text-5xl font-bold mt-2 lg:mt-4 mb-8 lg:mb-8 leading-10"> FAQS</h1>
-    <div class="border-t border-yellowloki my-4 opacity-40 clear-both"></div>
-    <button type="button" class="collapsible text-yellowloki text-lg text-left font-bold">¿El uso de Loki es gratis?</button>
-    <div class="content hidden text-yellowloki transition ease-in-out duration-500">
-      <p class="font-light pl-5 pt-3">Sí, Loki posee un modo gratuito, cuyas interacciones están limitadas de forma mensual. Para hacer uso ilimitado de Loki, es necesario adquirir una suscripción de las mencionadas en el siguiente [apartado].</p>
-    </div>
-    <div class="border-t border-yellowloki my-4 opacity-40"></div>
-    <button type="button" class="collapsible text-yellowloki text-lg text-left font-bold">¿Cómo puedo contactarme con Loki?</button>
-    <div class="content hidden text-yellowloki transition ease-in-out duration-500">
-      <p class="font-light pl-5 pt-3">Muy fácil, sólo tenés que agregarlo en tus contactos y enviarle un mensaje de whatsapp. (Podés hacerlo con el link en la parte superior).</p>
-    </div>
-    <div class="border-t border-yellowloki my-4 opacity-40"></div>
-    <button type="button" class="collapsible text-yellowloki text-lg text-left font-bold">¿Sí o sí tengo que escribirle a Loki?</button>
-    <div class="content hidden text-yellowloki transition ease-in-out duration-500">
-      <p class="font-light pl-5 pt-3">No, podés utilizar mensajes de voz, ya sean grabados por vos o reenviados, no hay ningún inconveniente. Esto vale no sólo para darle instrucciones, sino también para que los utilice (por ejemplo para solicitarle resúmenes, transcripciones, etc..).</p>
-    </div>
-    <div class="border-t border-yellowloki my-4 opacity-40"></div>
-    <button type="button" class="collapsible text-yellowloki text-lg text-left font-bold">¿Qué puedo preguntarle a Loki?</button>
-    <div class="content hidden text-yellowloki transition ease-in-out duration-500">
-      <p class="font-light pl-5 pt-3"> En cuanto lo contactes, Loki va a ofrecerte un tutorial con ideas y el paso a paso para que puedas aprovechar todo su potencial! También podés ingresar al menú de ayuda enviando el símbolo “?”.</p>
-    </div>
-    <div class="border-t border-yellowloki my-4 opacity-40"></div>
-    <button type="button" class="collapsible text-yellowloki text-lg text-left font-bold">¿Cómo funciona Loki?</button>
-    <div class="content hidden text-yellowloki transition ease-in-out duration-500">
-      <p class="font-light pl-5 pt-3">Loki es una inteligencia artificial basada en ChatGPT, básicamente es un robot que puede contestar a preguntas complejas entendiendo el significado y contexto de las palabras, lo cual lo convierte en un asistente ideal. Tiene muchísima información y conocimiento, por eso es capaz de ayudarte de forma eficiente. A su vez, puede interpretar varios comandos que le permiten por ejemplo, transformarse en otra persona que elijas (para más detalle, revisá el tutorial).</p>
-    </div>
-    <div class="border-t border-yellowloki my-4 opacity-40"></div>
-    <button type="button" class="collapsible text-yellowloki text-lg text-left font-bold">¿Desde qué país puedo adquirir una suscripción?</button>
-    <div class="content hidden text-yellowloki transition ease-in-out duration-500">
-      <p class="font-light pl-5 pt-3">Por el momento sólo desde Uruguay, pero tenemos planes de expandirnos a toda Latinoamérica.</p>
-    </div>
-    <div class="border-t border-yellowloki my-4 opacity-40"></div>
-    <button type="button" class="collapsible text-yellowloki text-lg text-left font-bold">¿Puedo cancelar mi suscripción en cualquier momento?</button>
-    <div class="content hidden text-yellowloki transition ease-in-out duration-500">
-      <p class="font-light pl-5 pt-3">Si, podrás cancelar la suscripción cuando gustes y no se te cobrará el siguiente mes. Esta vencerá al finalizar el mes corriente por lo que podrás seguir usando tu membresía hasta ese momento.</p>
-    </div>
-    <div class="border-t border-yellowloki my-4 opacity-40 "></div>
-    <button type="button" class="collapsible text-yellowloki text-lg text-left font-bold">¿Qué limitaciones tiene Loki?</button>
-    <div class="content hidden text-yellowloki transition ease-in-out duration-500">
-      <p class="font-light pl-5 pt-3">Al estar basado en ChatGPT, Loki comparte sus limitaciones. Por ejemplo, sólo posee información hasta Septiembre 2021 y no es capaz de interpretar imágenes o archivos (por ahora). Para más información sobre estas limitaciones, podés acceder a https://openai.com/blog/chatgpt.</p>
-    </div>
-    <div class="border-t border-yellowloki my-4 opacity-40"></div>
-    <button type="button" class="collapsible text-yellowloki text-lg text-left font-bold">¿Cómo puedo ponerme en contacto si tengo dudas o un problema?</button>
-    <div class="content hidden text-yellowloki transition ease-in-out duration-500">
-      <p class="font-light pl-5 pt-3">Podés utilizar el formulario que se encuentra al pie de la página o enviándonos un correo a loki.chat@mindblocks.ai.</p>
-    </div>
-    <div class="border-t border-yellowloki my-4 opacity-40"></div>
-  </div>
-</section>
-<!--Faqs End--> 
-
-<!--Contacto Start-->
-<section class="bg-yellowloki bg-auto bg-points bg-center bg-bottom  bg-no-repeat py-14 lg:py-20 px-6 relative">
-  <div id="contacto" class="absolute -mt-20 lg:-mt-14"></div>
-  <div data-aos="fade" data-aos-duration="2000" class="container p-6 md:p-20 bg-yellowlokiMedium rounded-lg mx-auto md:w-[780px] text-grayloki">
-    <h2 class="text-center text-3xl md:text-5xl uppercase text-grayloki font-bold">Contacto</h2>
-    <p class="text-darkgreenloki py-5">No seremos Loki, ¡pero también estamos para ayudarte!</p>
-    <form>
-      <div class="grid grid-cols-1 lg:grid-cols-2">
-        <div class="mr-0 lg:mr-3">
-          <label for="nombre" class="block">Nombre</label>
-          <input class="block w-full bg-yellowlokiDark rounded-lg py-1 px-2 focus:outline-none focus:ring-1 focus:ring-amber-500 invalid:border-red-500 invalid:border-red-500 focus:invalid:border-red-500 focus:invalid:border-red-500" type="text" id="nombre">
+  <!--Contacto Start-->
+  <section class="bg-yellowloki bg-auto bg-points bg-center bg-bottom  bg-no-repeat py-14 lg:py-20 px-6 relative">
+    <div id="contacto" class="absolute -mt-20 lg:-mt-14"></div>
+    <div data-aos="fade" data-aos-duration="2000"
+      class="container p-6 md:p-20 bg-yellowlokiMedium rounded-lg mx-auto md:w-[780px] text-grayloki">
+      <h2 class="text-center text-3xl md:text-5xl uppercase text-grayloki font-bold">Contacto</h2>
+      <p class="text-darkgreenloki py-5">No seremos Loki, ¡pero también estamos para ayudarte!</p>
+      <form action="https://dev.loki.api.mindblocks.ai/notifications/email" method="post">
+        <div class="grid grid-cols-1 lg:grid-cols-2">
+          <div class="mr-0 lg:mr-3">
+            <label for="name" class="block">Nombre</label>
+            <input name="name"
+              class="block w-full bg-yellowlokiDark rounded-lg py-1 px-2 focus:outline-none focus:ring-1 focus:ring-amber-500 invalid:border-red-500 invalid:border-red-500 focus:invalid:border-red-500 focus:invalid:border-red-500"
+              type="text" id="name">
+          </div>
+          <div class="ml-0 lg:ml-3">
+            <label for="email" class="block">E-mail</label>
+            <input name="email"
+              class="block w-full bg-yellowlokiDark rounded-lg  p-1 py-1 px-2 focus:outline-none focus:ring-1 focus:ring-amber-500 invalid:border-red-500 invalid:border-red-500 focus:invalid:border-red-500 focus:invalid:border-red-500"
+              type="email" id="email">
+          </div>
         </div>
-        <div class="ml-0 lg:ml-3">
-          <label for="email" class="block">E-mail</label>
-          <input class="block w-full bg-yellowlokiDark rounded-lg  p-1 py-1 px-2 focus:outline-none focus:ring-1 focus:ring-amber-500 invalid:border-red-500 invalid:border-red-500 focus:invalid:border-red-500 focus:invalid:border-red-500" type="email" id="email">
-        </div>
-      </div>
-      <br>
-      <label for="Motivo" class="block">Motivo</label>
-      <textarea class="block w-full bg-yellowlokiDark rounded-lg  p-1 py-1 px-2 focus:outline-none focus:ring-1 focus:ring-amber-500 invalid:border-red-500 invalid:border-red-500 focus:invalid:border-red-500 focus:invalid:border-red-500" rows="3" id="Motivo"></textarea>
-      <br>
-      <p class="text-red-500 mb-5 hidden">Mensaje de error</p>
-      <p class="text-center"> <a href="#" class="mx-auto inline-block bg-darkgreenloki text-yellowloki px-6 py-2 rounded-full hover:opacity-80 transition ease-in-out duration-500">Enviar</a></p>
-      <p class="text-amber-600 text-center mt-4 hidden">Mensaje enviado</p>
-    </form>
-  </div>
-  <p class="text-center text-darkgreenloki pt-16">© 2023 Mindblocks Loki</p>
-</section>
-<div class="bg-bottom bg-auto bg-repeat-y h-4 block bg-contain lg:bg-cover"></div>
-<!--Contacto End--> 
+        <br>
+        <label for="subject" class="block">Motivo</label>
+        <textarea name="subject"
+          class="block w-full bg-yellowlokiDark rounded-lg  p-1 py-1 px-2 focus:outline-none focus:ring-1 focus:ring-amber-500 invalid:border-red-500 invalid:border-red-500 focus:invalid:border-red-500 focus:invalid:border-red-500"
+          rows="3" id="subject"></textarea>
+        <br>
+        <p class="text-red-500 mb-5 hidden">Mensaje de error</p>
+        <p class="text-center">
+          <button data-sitekey="6LeCIFgoAAAAAOeUuh9LiJPG4drCh4EoO9BTn2cb" data-callback='onSubmit' type="submit"
+            class="g-recaptcha mx-auto inline-block bg-darkgreenloki text-yellowloki px-6 py-2 rounded-full hover:opacity-80 transition ease-in-out duration-500">Enviar</button>
+        </p>
+        <p class="text-amber-600 text-center mt-4 hidden">Mensaje enviado</p>
+      </form>
+    </div>
+    <p class="text-center text-darkgreenloki pt-16">© 2023 Mindblocks</p>
+  </section>
+  <div class="bg-bottom bg-auto bg-repeat-y h-4 block bg-contain lg:bg-cover"></div>
 
-<!--AOS ANIMATION-->
-<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> 
-<script>
-  AOS.init();
-</script> 
-
-<!--MENU MOBILE--> 
-<script>
-      const btn = document.querySelector("button.mobile-menu-button");
-      const menu = document.querySelector(".mobile-menu");
-
-      btn.addEventListener("click", () => {
-          menu.classList.toggle("hidden");
-      });
-	  menu.addEventListener("click", () => {
-          menu.classList.toggle("hidden");
-      });
-	
-</script> 
-
-<!--COLLAPSE SCRIPT--> 
-<script>
-var coll = document.getElementsByClassName("collapsible");
-var i;
-
-for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var content = this.nextElementSibling;
-    if (content.style.display === "block") {
-      content.style.display = "none";
-    } else {
-      content.style.display = "block"; 
+  <script>
+    function onSubmit(token) {
+      document.getElementById("contacto").submit();
     }
-  });
-}
-</script>
+  </script>
+  <!--Contacto End-->
+
+  <!--AOS ANIMATION-->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+
+  <!--MENU MOBILE-->
+  <script>
+    const btn = document.querySelector("button.mobile-menu-button");
+    const menu = document.querySelector(".mobile-menu");
+
+    btn.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+    });
+    menu.addEventListener("click", () => {
+      menu.classList.toggle("hidden");
+    });
+
+  </script>
+
+  <!--COLLAPSE SCRIPT-->
+  <script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.display === "block") {
+          content.style.display = "none";
+        } else {
+          content.style.display = "block";
+        }
+      });
+    }
+  </script>
 </body>
+
 </html>
