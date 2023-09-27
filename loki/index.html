@@ -375,48 +375,52 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
   <!--Faqs End-->
 
   <!--Contacto Start-->
-  <section class="bg-yellowloki bg-auto bg-points bg-center bg-bottom  bg-no-repeat py-14 lg:py-20 px-6 relative">
-    <div id="contacto" class="absolute -mt-20 lg:-mt-14"></div>
-    <div data-aos="fade" data-aos-duration="2000"
-      class="container p-6 md:p-20 bg-yellowlokiMedium rounded-lg mx-auto md:w-[780px] text-grayloki">
-      <h2 class="text-center text-3xl md:text-5xl uppercase text-grayloki font-bold">Contacto</h2>
-      <p class="text-darkgreenloki py-5">No seremos Loki, ¡pero también estamos para ayudarte!</p>
-      <form action="https://dev.loki.api.mindblocks.ai/notifications/email" method="post">
-        <div class="grid grid-cols-1 lg:grid-cols-2">
-          <div class="mr-0 lg:mr-3">
-            <label for="name" class="block">Nombre</label>
-            <input name="name"
-              class="block w-full bg-yellowlokiDark rounded-lg py-1 px-2 focus:outline-none focus:ring-1 focus:ring-amber-500 invalid:border-red-500 invalid:border-red-500 focus:invalid:border-red-500 focus:invalid:border-red-500"
-              type="text" id="name">
+  <section class="bg-yellowloki bg-auto bg-points bg-center bg-bottom bg-no-repeat py-14 lg:py-20 px-6 relative">
+    <div id="contacto" class="absolute -mt-20 lg:-mt-14">
+      <div data-aos="fade" data-aos-duration="2000"
+        class="container p-6 md:p-20 bg-yellowlokiMedium rounded-lg mx-auto md:w-[780px] text-grayloki">
+        <h2 class="text-center text-3xl md:text-5xl uppercase text-grayloki font-bold">Contacto</h2>
+        <p class="text-darkgreenloki py-5">No seremos Loki, ¡pero también estamos para ayudarte!</p>
+        <form id="contact-form" action="https://dev.loki.api.mindblocks.ai/notifications/email" method="post">
+          <div class="grid grid-cols-1 lg:grid-cols-2">
+            <div class="mr-0 lg:mr-3">
+              <label for="name" class="block">Nombre</label>
+              <input name="name"
+                class="block w-full bg-yellowlokiDark rounded-lg py-1 px-2 focus:outline-none focus:ring-1 focus:ring-amber-500 invalid:border-red-500 invalid:border-red-500 focus:invalid:border-red-500 focus:invalid:border-red-500"
+                type="text" id="name">
+            </div>
+            <div class="ml-0 lg:ml-3">
+              <label for="email" class="block">E-mail</label>
+              <input name="email"
+                class="block w-full bg-yellowlokiDark rounded-lg  p-1 py-1 px-2 focus:outline-none focus:ring-1 focus:ring-amber-500 invalid:border-red-500 invalid:border-red-500 focus:invalid:border-red-500 focus:invalid:border-red-500"
+                type="email" id="email">
+            </div>
           </div>
-          <div class="ml-0 lg:ml-3">
-            <label for="email" class="block">E-mail</label>
-            <input name="email"
-              class="block w-full bg-yellowlokiDark rounded-lg  p-1 py-1 px-2 focus:outline-none focus:ring-1 focus:ring-amber-500 invalid:border-red-500 invalid:border-red-500 focus:invalid:border-red-500 focus:invalid:border-red-500"
-              type="email" id="email">
-          </div>
-        </div>
-        <br>
-        <label for="subject" class="block">Motivo</label>
-        <textarea name="subject"
-          class="block w-full bg-yellowlokiDark rounded-lg  p-1 py-1 px-2 focus:outline-none focus:ring-1 focus:ring-amber-500 invalid:border-red-500 invalid:border-red-500 focus:invalid:border-red-500 focus:invalid:border-red-500"
-          rows="3" id="subject"></textarea>
-        <br>
-        <p class="text-red-500 mb-5 hidden">Mensaje de error</p>
-        <p class="text-center">
-          <button data-sitekey="6LeCIFgoAAAAAOeUuh9LiJPG4drCh4EoO9BTn2cb" data-callback='onSubmit' type="submit"
-            class="g-recaptcha mx-auto inline-block bg-darkgreenloki text-yellowloki px-6 py-2 rounded-full hover:opacity-80 transition ease-in-out duration-500">Enviar</button>
-        </p>
-        <p class="text-amber-600 text-center mt-4 hidden">Mensaje enviado</p>
-      </form>
+          <br>
+          <label for="subject" class="block">Motivo</label>
+          <textarea name="subject"
+            class="block w-full bg-yellowlokiDark rounded-lg  p-1 py-1 px-2 focus:outline-none focus:ring-1 focus:ring-amber-500 invalid:border-red-500 invalid:border-red-500 focus:invalid:border-red-500 focus:invalid:border-red-500"
+            rows="3" id="subject"></textarea>
+          <br>
+          <p class="text-red-500 mb-5 hidden">Mensaje de error</p>
+          <p class="text-center">
+            <button data-sitekey="6LeCIFgoAAAAAOeUuh9LiJPG4drCh4EoO9BTn2cb" data-callback='onSubmit' type="submit"
+              class="g-recaptcha mx-auto inline-block bg-darkgreenloki text-yellowloki px-6 py-2 rounded-full hover:opacity-80 transition ease-in-out duration-500">Enviar</button>
+          </p>
+          <p class="text-amber-600 text-center mt-4 hidden">Mensaje enviado</p>
+        </form>
+      </div>
     </div>
     <p class="text-center text-darkgreenloki pt-16">© 2023 Mindblocks</p>
   </section>
   <div class="bg-bottom bg-auto bg-repeat-y h-4 block bg-contain lg:bg-cover"></div>
 
+  <!--Style to avoid recaptcha shown outside the form-->
+  <style>#contacto {overflow: hidden;}</style>
+  
   <script>
     function onSubmit(token) {
-      document.getElementById("contacto").submit();
+      document.getElementById("contact-form").submit();
     }
   </script>
   <!--Contacto End-->
