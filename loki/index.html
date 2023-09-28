@@ -406,7 +406,8 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
         <p id="email-error" class="text-red-500 mb-5 hidden">Mensaje de error</p>
         <p class="text-center">
           <button data-sitekey="6LeCIFgoAAAAAOeUuh9LiJPG4drCh4EoO9BTn2cb" data-callback='onSubmit' type="submit"
-            class="g-recaptcha mx-auto inline-block bg-darkgreenloki text-yellowloki px-6 py-2 rounded-full hover:opacity-80 transition ease-in-out duration-500">Enviar</button>
+            class="g-recaptcha mx-auto inline-block bg-darkgreenloki text-yellowloki px-6 py-2 rounded-full hover:opacity-80 transition ease-in-out duration-500"><span
+              id="loading-spinner" class="hidden">🔄</span>Enviar</button>
         </p>
         <p id="email-sent" class="text-amber-600 text-center mt-4 hidden">Mensaje enviado</p>
       </form>
@@ -423,7 +424,19 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
   </style>
 
   <script>
+    document.getElementById('email-error').scrollIntoView({ behavior: 'smooth' });
+
     async function onSubmit(token) {
+      if (!validateForm()) {
+        return;
+      }
+
+      const button = document.querySelector('#contactForm button');
+      const spinner = document.getElementById('loading-spinner')
+
+      button.disabled = true;
+      spinner.classList.remove('hidden');
+
       const form = document.getElementById("contactForm");
       const formData = new FormData(form);
 
@@ -439,12 +452,29 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
       if (response.ok) {
         document.getElementById('email-error').classList.add('hidden');
         document.getElementById('email-sent').classList.remove('hidden');
+        form.reset();
       } else {
         document.getElementById('email-sent').classList.add('hidden');
         document.getElementById('email-error').classList.remove('hidden');
         document.getElementById('email-error').innerHTML = responseData.message;
       }
-    
+
+      button.disabled = false;
+      spinner.classList.add('hidden');
+    }
+
+    function validateForm() {
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const subject = document.getElementById("subject").value;
+
+      if (!name || !email || !subject) {
+        document.getElementById('email-error').innerHTML = 'Please fill out all fields.';
+        document.getElementById('email-error').classList.remove('hidden');
+        return false;
+      }
+
+      return true;
     }
   </script>
   <!--Contacto End-->
