@@ -29,6 +29,10 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
     tailwind.config = {
       theme: {
         extend: {
+          width: {
+            '1/9': '11.1111111%',
+            '1/12': '8.3333333%',
+          },
           colors: {
             grayloki: '#222f3b',
             graylokiMedium: '#35424d',
@@ -405,10 +409,10 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
         <br>
         <p id="email-error" class="text-red-500 mb-5 hidden">Mensaje de error</p>
         <p class="text-center">
+          <img id="loading-spinner" src="images/spinner.gif" class="hidden mx-auto w-1/12" alt="Enviando...">
           <button data-sitekey="6LeCIFgoAAAAAOeUuh9LiJPG4drCh4EoO9BTn2cb" data-callback='onSubmit' type="submit"
             class="g-recaptcha mx-auto inline-block bg-darkgreenloki text-yellowloki px-6 py-2 rounded-full hover:opacity-80 transition ease-in-out duration-500">
-            <span id="submit-text">Enviar</span>
-            <img id="loading-spinner" src="images/spinner.gif" class="hidden" alt="Enviando...">
+            Enviar
           </button>
         </p>
         <p id="email-sent" class="text-amber-600 text-center mt-4 hidden">Mensaje enviado</p>
@@ -438,8 +442,7 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
       const submitText = document.getElementById('submit-text');
 
       button.disabled = true;
-      button.classList.add('opacity-50');
-      submitText.classList.add('hidden');
+      button.classList.add('hidden');
       spinner.classList.remove('hidden');
 
       const form = document.getElementById("contact-form");
@@ -465,9 +468,8 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
       }
 
       button.disabled = false;
-      button.classList.remove('opacity-50');
+      button.classList.remove('hidden');
       spinner.classList.add('hidden');
-      submitText.classList.remove('hidden');
     }
 
     function validateForm() {
