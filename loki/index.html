@@ -436,6 +436,9 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
       if (!validateForm()) {
         return;
       }
+      
+      document.getElementById('email-sent').classList.add('hidden');
+      document.getElementById('email-error').classList.add('hidden');
 
       const button = document.querySelector('#contact-form button');
       const spinner = document.getElementById('loading-spinner')
@@ -458,11 +461,9 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
       console.log(responseData);
 
       if (response.ok) {
-        document.getElementById('email-error').classList.add('hidden');
         document.getElementById('email-sent').classList.remove('hidden');
         form.reset();
       } else {
-        document.getElementById('email-sent').classList.add('hidden');
         document.getElementById('email-error').classList.remove('hidden');
         document.getElementById('email-error').innerHTML = responseData.message;
       }
