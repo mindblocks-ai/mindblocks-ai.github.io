@@ -430,15 +430,16 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
   </style>
 
   <script>
+    document.getElementById('email-sent').scrollIntoView({ behavior: 'smooth' });
     document.getElementById('email-error').scrollIntoView({ behavior: 'smooth' });
 
     async function onSubmit(token) {
-      if (!validateForm()) {
-        return;
-      }
-      
       document.getElementById('email-sent').classList.add('hidden');
       document.getElementById('email-error').classList.add('hidden');
+
+      if (!validateForm()) {
+        return;
+      }     
 
       const button = document.querySelector('#contact-form button');
       const spinner = document.getElementById('loading-spinner')
