@@ -382,7 +382,7 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
       class="container p-6 md:p-20 bg-yellowlokiMedium rounded-lg mx-auto md:w-[780px] text-grayloki overflow-hidden">
       <h2 class="text-center text-3xl md:text-5xl uppercase text-grayloki font-bold">Contacto</h2>
       <p class="text-darkgreenloki py-5">No seremos Loki, ¡pero también estamos para ayudarte!</p>
-      <form id="contactForm" action="https://dev.loki.api.mindblocks.ai/notifications/email" method="post">
+      <form id="contact-form" action="https://dev.loki.api.mindblocks.ai/notifications/email" method="post">
         <div class="grid grid-cols-1 lg:grid-cols-2">
           <div class="mr-0 lg:mr-3">
             <label for="name" class="block">Nombre</label>
@@ -406,8 +406,10 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
         <p id="email-error" class="text-red-500 mb-5 hidden">Mensaje de error</p>
         <p class="text-center">
           <button data-sitekey="6LeCIFgoAAAAAOeUuh9LiJPG4drCh4EoO9BTn2cb" data-callback='onSubmit' type="submit"
-            class="g-recaptcha mx-auto inline-block bg-darkgreenloki text-yellowloki px-6 py-2 rounded-full hover:opacity-80 transition ease-in-out duration-500"><span
-              id="loading-spinner" class="hidden">🔄</span>Enviar</button>
+            class="g-recaptcha mx-auto inline-block bg-darkgreenloki text-yellowloki px-6 py-2 rounded-full hover:opacity-80 transition ease-in-out duration-500">
+            <span id="submit-text">Enviar</span>
+            <img id="loading-spinner" src="images/spinner.gif" class="hidden" alt="Enviando...">
+          </button>
         </p>
         <p id="email-sent" class="text-amber-600 text-center mt-4 hidden">Mensaje enviado</p>
       </form>
@@ -431,13 +433,16 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
         return;
       }
 
-      const button = document.querySelector('#contactForm button');
+      const button = document.querySelector('#contact-form button');
       const spinner = document.getElementById('loading-spinner')
+      const submitText = document.getElementById('submit-text');
 
       button.disabled = true;
+      button.classList.add('opacity-50');
+      submitText.classList.add('hidden');
       spinner.classList.remove('hidden');
 
-      const form = document.getElementById("contactForm");
+      const form = document.getElementById("contact-form");
       const formData = new FormData(form);
 
       const response = await fetch(form.action, {
@@ -460,7 +465,9 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
       }
 
       button.disabled = false;
+      button.classList.remove('opacity-50');
       spinner.classList.add('hidden');
+      submitText.classList.remove('hidden');
     }
 
     function validateForm() {
