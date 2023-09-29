@@ -13,6 +13,17 @@
   <meta property="og:description" content="Desbloquea todo el poder de ChatGPT desde tu Whatsapp con Loki. ¡No pierdas más tiempo en tareas cotidianas! 
 Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder de ChatGPT en tu Whatsapp. ">
 
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-MP5RBSTC');</script>
+  <!-- End Google Tag Manager -->
+
   <!--ICONS-->
   <link rel="shortcut icon" href="images/favicon.ico">
   <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
@@ -89,6 +100,21 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
 </head>
 
 <body class="bg-grayloki font-sans bg-hero bg-auto bg-no-repeat bg-top">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MP5RBSTC" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z7WSYE6J4P"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-Z7WSYE6J4P');
+  </script>
+  <!-- End of Google tag (gtag.js) -->
 
   <!--Header Start-->
   <header class="mx-auto sticky top-0 z-50 bg-header bg-top bg-repeat-x">
@@ -439,7 +465,7 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
 
       if (!validateForm()) {
         return;
-      }     
+      }
 
       const button = document.querySelector('#contact-form button');
       const spinner = document.getElementById('loading-spinner')
@@ -527,16 +553,6 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
         }
       });
     }
-  </script>
-
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z7WSYE6J4P"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'G-Z7WSYE6J4P');
   </script>
 </body>
 
