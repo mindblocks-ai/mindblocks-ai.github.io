@@ -445,27 +445,39 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
       class="container p-6 md:p-20 bg-yellowlokiMedium rounded-lg mx-auto md:w-[780px] text-grayloki overflow-hidden">
       <h2 class="text-center text-3xl md:text-5xl uppercase text-grayloki font-bold">Contacto</h2>
       <p class="text-darkgreenloki py-5">No seremos Loki, ¡pero también estamos para ayudarte!</p>
-      <form id="contact-form" action="https://loki.api.mindblocks.ai/notifications/email" method="post">
+      <form id="contact-form" action="https://dev.loki.api.mindblocks.ai/notifications/email" method="post">
         <div class="grid grid-cols-1 lg:grid-cols-2">
-          <div class="mr-0 lg:mr-3">
-            <label for="name" class="block">Nombre</label>
+          <div class="mr-0 lg:mr-3 mb-4">
+            <label for="name" class="block">Nombre <span class="text-red-500">*</span></label>
             <input name="name"
               class="block w-full bg-yellowlokiDark rounded-lg py-1 px-2 focus:outline-none focus:ring-1 focus:ring-amber-500 invalid:border-red-500 invalid:border-red-500 focus:invalid:border-red-500 focus:invalid:border-red-500"
-              type="text" id="name">
+              type="text" required placeholder="Carlos" id="name">
           </div>
-          <div class="ml-0 lg:ml-3">
-            <label for="email" class="block">E-mail</label>
-            <input name="email"
+          <div class="ml-0 lg:ml-3 mb-4">
+            <label for="subject" class="block">Motivo <span class="text-red-500">*</span></label>
+            <input name="subject"
               class="block w-full bg-yellowlokiDark rounded-lg  p-1 py-1 px-2 focus:outline-none focus:ring-1 focus:ring-amber-500 invalid:border-red-500 invalid:border-red-500 focus:invalid:border-red-500 focus:invalid:border-red-500"
-              type="email" id="email">
+              type="text" required placeholder="Futuras Mejoras" id="subject">
           </div>
         </div>
-        <br>
-        <label for="message" class="block">Motivo</label>
+        <div class="grid grid-cols-1 lg:grid-cols-2">
+          <div class="mr-0 lg:mr-3 mb-4">
+            <label for="email" class="block">E-mail <span class="text-red-500">*</span></label>
+            <input name="email"
+              class="block w-full bg-yellowlokiDark rounded-lg  p-1 py-1 px-2 focus:outline-none focus:ring-1 focus:ring-amber-500 invalid:border-red-500 invalid:border-red-500 focus:invalid:border-red-500 focus:invalid:border-red-500"
+              type="email" required placeholder="c.gardel@gmail.com" id="email">
+          </div>
+          <div class="ml-0 lg:ml-3 mb-4">
+            <label for="phone" class="block">Teléfono</label>
+            <input name="phone"
+              class="block w-full bg-yellowlokiDark rounded-lg py-1 px-2 focus:outline-none focus:ring-1 focus:ring-amber-500 invalid:border-red-500 invalid:border-red-500 focus:invalid:border-red-500 focus:invalid:border-red-500"
+              type="phone" placeholder="59898123456" id="phone">
+          </div>
+        </div>
+        <label for="message" class="block">Mensaje <span class="text-red-500">*</span></label>
         <textarea name="message"
-          class="block w-full bg-yellowlokiDark rounded-lg  p-1 py-1 px-2 focus:outline-none focus:ring-1 focus:ring-amber-500 invalid:border-red-500 invalid:border-red-500 focus:invalid:border-red-500 focus:invalid:border-red-500"
-          rows="3" id="subject"></textarea>
-        <br>
+          class="block w-full bg-yellowlokiDark rounded-lg  p-1 py-1 px-2 focus:outline-none focus:ring-1 focus:ring-amber-500 invalid:border-red-500 invalid:border-red-500 focus:invalid:border-red-500 focus:invalid:border-red-500 mb-4"
+          rows="3" required id="message"></textarea>
         <p id="email-error" class="text-red-500 mb-5 hidden">Mensaje de error</p>
         <p class="text-center">
           <img id="loading-spinner" src="images/spinner.gif" class="hidden mx-auto w-1/12" alt="Enviando...">
@@ -489,14 +501,36 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
   </style>
 
   <script>
+    function getParameterByName(name, url) {
+      if (!url) url = window.location.href;
+      name = name.replace(/[\[\]]/g, '\\$&');
+      var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+      if (!results) return null;
+      if (!results[2]) return '';
+      return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    }
+
+    // Using the function to prepopulate form fields
+    window.onload = function () {
+      ["subject", "phone", "name", "email", "message"].forEach(function (id) {
+        var value = getParameterByName(id);
+        if (value) {
+          document.getElementById(id).value = value;
+        }
+      });
+    }
+
     document.getElementById('email-sent').scrollIntoView({ behavior: 'smooth' });
     document.getElementById('email-error').scrollIntoView({ behavior: 'smooth' });
 
     async function onSubmit(token) {
+      const form = document.getElementById("contact-form");
       document.getElementById('email-sent').classList.add('hidden');
       document.getElementById('email-error').classList.add('hidden');
 
-      if (!validateForm()) {
+      if (!form.checkValidity()) {
+        form.reportValidity()
         return;
       }
 
@@ -508,7 +542,6 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
       button.classList.add('hidden');
       spinner.classList.remove('hidden');
 
-      const form = document.getElementById("contact-form");
       const formData = new FormData(form);
 
       const response = await fetch(form.action, {
@@ -531,20 +564,6 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
       button.disabled = false;
       button.classList.remove('hidden');
       spinner.classList.add('hidden');
-    }
-
-    function validateForm() {
-      const name = document.getElementById("name").value;
-      const email = document.getElementById("email").value;
-      const subject = document.getElementById("subject").value;
-
-      if (!name || !email || !subject) {
-        document.getElementById('email-error').innerHTML = 'Por favor completa todos los campos';
-        document.getElementById('email-error').classList.remove('hidden');
-        return false;
-      }
-
-      return true;
     }
   </script>
   <!--Contacto End-->
