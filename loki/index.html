@@ -504,17 +504,6 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
   </style>
 
   <script>
-    // Make sure hash locations works when loading the page
-    window.addEventListener('DOMContentLoaded', (event) => {
-      const hash = window.location.hash;
-      if (hash) {
-        const element = document.querySelector(hash);
-        if (element) {
-          element.scrollIntoView();
-        }
-      }
-    });
-
     function getParameterByName(name, url) {
       if (!url) url = window.location.href;
       name = name.replace(/[\[\]]/g, '\\$&');
