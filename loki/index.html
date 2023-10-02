@@ -197,7 +197,8 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
         <br>
         <a href="https://wa.me/59893476717?text=Hola%20Loki!%20como%20estas%3F" target="_blank"
           class="bg-greenloki text-lg md:text-base px-6 py-3 my-4 inline-block rounded-full shadow-lg hover:opacity-70 transition ease-in-out duration-500"><img
-            src="images/whatsapp-icon.svg" alt="" width="26" height="26" class="float-left mr-3">¡Mandale un mensaje!</a>
+            src="images/whatsapp-icon.svg" alt="" width="26" height="26" class="float-left mr-3">¡Mandale un
+          mensaje!</a>
       </div>
     </section>
     <!--Main Content End-->
@@ -348,7 +349,8 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
         </p>
       </div>
       <div class="border-t border-yellowloki my-4 opacity-40 clear-both"></div>
-      <button type="button" class="collapsible text-yellowloki text-lg text-left font-bold">Loki dice que no me tiene en su lista</button>
+      <button type="button" class="collapsible text-yellowloki text-lg text-left font-bold">Loki dice que no me tiene en
+        su lista</button>
       <div class="content hidden text-yellowloki transition ease-in-out duration-500">
         <p class="font-light pl-5 pt-3">Sí, esto se debe a que por el momento solo estamos aceptando un numero limitado
           de usuarios para que prueben a Loki previo al lanzamiento oficial. La participacion es totalmente gratuida, si
@@ -361,7 +363,8 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
         Loki?</button>
       <div class="content hidden text-yellowloki transition ease-in-out duration-500">
         <p class="font-light pl-5 pt-3">Muy fácil, sólo tenés que agregarlo en tus contactos y enviarle un mensaje de
-          whatsapp. <a class="gold-link" href="https://wa.me/59893476717?text=Hola%20Loki!%20como%20estas%3F">Este link</a> te llevara a hablar con él directamente.</p>
+          whatsapp. <a class="gold-link" href="https://wa.me/59893476717?text=Hola%20Loki!%20como%20estas%3F">Este
+            link</a> te llevara a hablar con él directamente.</p>
       </div>
       <div class="border-t border-yellowloki my-4 opacity-40"></div>
       <button type="button" class="collapsible text-yellowloki text-lg text-left font-bold">¿Sí o sí tengo que
@@ -501,6 +504,17 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
   </style>
 
   <script>
+    // Make sure hash locations works when loading the page
+    window.addEventListener('DOMContentLoaded', (event) => {
+      const hash = window.location.hash;
+      if (hash) {
+        const element = document.querySelector(hash);
+        if (element) {
+          element.scrollIntoView();
+        }
+      }
+    });
+
     function getParameterByName(name, url) {
       if (!url) url = window.location.href;
       name = name.replace(/[\[\]]/g, '\\$&');
