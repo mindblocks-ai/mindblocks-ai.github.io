@@ -197,17 +197,16 @@
 
   <!-- JavaScript to handle the payment and confirmation buttons -->
   <script>
-    function getParameterByName(name, url) {
+    function getParameterByName(name, localStorage, url) {
       if (!url) url = window.location.href;
       name = name.replace(/[\[\]]/g, '\\$&');
       var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
         results = regex.exec(url);
 
-      if (!results) {
-        // If not found in URL, return from LocalStorage or null
-        return localStorage.getItem(name) || null;
-      }
+      if (!results && !localStorage) return null;
 
+      if (!results && localStorage) return localStorage.getItem(name) || null;
+      
       if (!results[2]) return '';
       return decodeURIComponent(results[2].replace(/\+/g, ' '));
     }
@@ -230,7 +229,7 @@
     // Using the function to prepopulate form fields
     window.onload = function () {
       ["phone", "plan", "preapproval_id"].forEach(function (id) {
-        var value = getParameterByName(id);
+        var value = getParameterByName(id, id != 'preapproval_id');
 
         if (id === 'phone' && !isValidPhone(value)) return;
         if (id === 'plan' && !isValidPlan(value)) return;
