@@ -1,0 +1,279 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Loki - Subscripciones</title>
+  <meta name="description" content="Subscripciones de Loki">
+
+  <!--ICONS-->
+  <link rel="shortcut icon" href="../images/favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="../images/apple-touch-icon.png">
+
+  <!--FONTS-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <!--TAILWINDCSS-->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            grayloki: '#222f3b',
+            graylokiMedium: '#35424d',
+            yellowloki: '#fdf8d4',
+            yellowlokiMedium: '#f4efcb',
+            yellowlokiDark: '#dfe1bf',
+            greenloki: '#3eb870',
+            darkgreenloki: '#0f826a',
+            goldloki: '#e6bd59',
+            blackloki: '#121518',
+          },
+          fontFamily: {
+            sans: ['Alexandria', 'sans-serif'],
+          },
+
+          backgroundImage: {
+            'hero': "url('../images/background.jpg')",
+            'bottom': "url('../images/line.svg')",
+            'points': "url('../images/points.png')",
+            'header': "url('../images/bg-header.svg')",
+          }
+        }
+      }
+    }
+  </script>
+
+  <!--COLLAPSE CSS-->
+  <style>
+    h2 {
+      border-bottom: 0.1em solid #0f826a;
+    }
+
+    b,
+    strong {
+      color: #0f826a;
+    }
+
+    .gold-link {
+      color: #e6bd59 !important;
+    }
+
+    .gold-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+
+
+</head>
+
+<body class="bg-grayloki font-sans bg-hero bg-auto bg-no-repeat bg-top">
+
+  <!--Header Start-->
+  <header class="mx-auto sticky top-0 z-50 bg-header bg-top bg-repeat-x">
+    <nav class="drop-shadow-lg  lg:filter-none  bg-grayloki md:bg-transparent">
+      <div class="">
+        <div class="flex justify-between w-full py-2 md:py-4 px-3 lg:px-4">
+          <div class="flex justify-between w-full">
+            <!-- Website Logo -->
+            <div class="items-center"><a href="https://mindblocks.ai/loki"><img src="../images/logo-loki.svg"
+                  width="125" height="59" alt="Loki"></a></div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+  <!--Header End-->
+  <div class="container mx-auto max-w-screen-lg relative mt-10 px-6 mb-10 lg:px-0">
+
+    <!--Main Content Start-->
+    <section data-aos="fade-down" data-aos-duration="1000" class="grid gap-10 z-15">
+      <div id="subscription-form" class="absolute -mt-20 lg:-mt-14"></div>
+      <div data-aos="fade" data-aos-duration="2000"
+        class="container p-6 md:p-20 bg-yellowlokiMedium rounded-lg mx-auto max-w-screen-lg text-grayloki">
+
+        <!-- Subscription Title -->
+        <h1 class="text-center text-3xl md:text-4xl uppercase text-grayloki font-bold mb-10">Subscripciones</h1>
+
+        <!-- Subscription Form -->
+        <form id="paymentForm" action="https://dev.loki.api.mindblocks.ai/payments/subscriptions" method="post">
+          <div class="grid grid-cols-1 lg:grid-cols-2">
+            <!-- Phone Input with Tooltip -->
+            <div class="mr-0 lg:mr-3 mb-6">
+              <label for="phone" class="block mb-2">
+                Telefono:
+                <!-- Tooltip Icon and Text -->
+                <span class="ml-1 inline-block relative cursor-help">
+                  <i class="fas fa-question-circle"></i>
+                  <!-- Tooltip Content -->
+                  <span
+                    class="absolute left-0 mt-6 p-2 w-96 bg-blackloki text-yellowlokiMedium rounded-md text-xs leading-tight"
+                    style="transform: translateX(-25%); z-index: 10; display: none;">
+                    Tu numero de telefono tal cual aparece en tu cuenta de WhatsApp<br>
+                    Sin espacios, guiones o parentesis.<br><br>
+                    Por ejemplo: (+598) 098 55-1234 -> <a class="gold-link">59898551234</a>
+                  </span>
+                </span>
+              </label>
+              <input type="tel" id="phone" name="phone" placeholder="59898123456" required
+                class="w-full p-2 border border-grayloki rounded-md">
+            </div>
+
+            <!-- Plan Selector with Tooltip -->
+            <div class="ml-0 lg:ml-3 mb-6">
+              <label for="plan" class="block mb-2">
+                Selecciona el Plan:
+                <!-- Tooltip Icon and Text -->
+                <span class="ml-1 inline-block relative cursor-help">
+                  <i class="fas fa-question-circle"></i>
+                  <!-- Tooltip Content -->
+                  <span
+                    class="absolute left-0 mt-6 p-2 w-96 bg-blackloki text-yellowlokiMedium rounded-md text-xs leading-tight"
+                    style="transform: translateX(-45%); z-index: 10; display: none;">
+                    Para más información visita nuestra seccion de planes: <br><br> <a
+                      href="https://mindblocks.ai/loki#planes" class="gold-link">https://mindblocks.ai/loki#planes</a>.
+                  </span>
+                </span>
+              </label>
+              <select id="plan" name="plan" required class="w-full p-2 border border-grayloki rounded-md">
+                <option value="standard">Standard</option>
+                <option value="premium">Premium</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="ml-0 mr-0 lg:ml-20 lg:mr-20 mb-12">
+            <label for="preapproval_id" class="block mb-2">
+              Id de Pago:
+              <!-- Tooltip Icon and Text -->
+              <span class="ml-1 inline-block relative cursor-help">
+                <i class="fas fa-question-circle"></i>
+                <!-- Tooltip Content -->
+                <span
+                  class="absolute left-0 mt-6 p-2 w-96 bg-blackloki text-yellowlokiMedium rounded-md text-xs leading-tight"
+                  style="transform: translateX(-45%); z-index: 10; display: none;">
+                  El ID de pago se obtiene al finalizar la compra, luego de hacer click en el boton "Volver al sitio".
+                </span>
+              </span>
+            </label>
+            <input required disabled type="text" id="preapproval_id" name="preapproval_id" required
+              class="lg:text-center w-full p-2 border border-grayloki rounded-md">
+          </div>
+
+          <!-- Payment Button -->
+          <div class="mt-8 mx-auto text-center">
+            <a id="mercadopagoButton">
+              <img class="mx-auto"
+                src="https://http2.mlstatic.com/storage/dx-devsite/docs-assets/images/cow/cow-visual-wallet-default.es.png?v=4.8.3"
+                alt="cow-visual-wallet-default">
+            </a>
+          </div>
+
+          <!-- Confirmation Button (hidden by default, will show after payment) -->
+          <div class="mt-8 text-center hidden" id="confirmationButton">
+            <button type="submit"
+              class="px-7 py-3 rounded-md bg-darkgreenloki text-yellowlokiMedium font-medium hover:bg-greenloki">
+              Confirm & Subscribe
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+    <!--Main Content End-->
+  </div>
+
+  <!--Footer Section Start-->
+  <section class="bg-yellowloki bg-auto bg-points bg-center bg-bottom bg-no-repeat px-6 relative">
+    <div id="contacto" class="absolute -mt-20 lg:-mt-14"></div>
+    <p class="text-center text-darkgreenloki pt-4">© 2023 Mindblocks</p>
+  </section>
+  <!--Footer Section End-->
+
+  <div class="bg-bottom bg-auto bg-repeat-y h-4 block bg-contain lg:bg-cover"></div>
+
+  <!-- JavaScript to handle the payment and confirmation buttons -->
+  <script>
+    function getParameterByName(name, url) {
+      if (!url) url = window.location.href;
+      name = name.replace(/[\[\]]/g, '\\$&');
+      var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+
+      if (!results) {
+        // If not found in URL, return from LocalStorage or null
+        return localStorage.getItem(name) || null;
+      }
+
+      if (!results[2]) return '';
+      return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    }
+
+    function isValidPhone(value) {
+      const phonePattern = /^[+]?[\d\s-]{7,15}$/;
+      return phonePattern.test(value);
+    }
+
+    function isValidPlan(value) {
+      const allowedPlans = ["standard", "premium"];
+      return allowedPlans.includes(value);
+    }
+
+    // function isValidPreaprovalPlanId(value) {
+    //   const allowedPreapprovalPlanIds = ["P-0VW10508YD046711UL5Z4Z4A", "P-0VW10508YD046711UL5Z4Z4A"];
+    //   return allowedPreapprovalPlanIds.includes(value);
+    // }
+
+    // Using the function to prepopulate form fields
+    window.onload = function () {
+      ["phone", "plan", "preapproval_id"].forEach(function (id) {
+        var value = getParameterByName(id);
+
+        if (id === 'phone' && !isValidPhone(value)) return;
+        if (id === 'plan' && !isValidPlan(value)) return;
+        // if (id === 'preapproval_id' && !isValidPreaprovalPlanId(value)) return;
+
+        if (value) {
+          document.getElementById(id).value = value;
+          document.getElementById(id).setAttribute("disabled", "disabled");
+
+          localStorage.setItem(id, value);
+        }
+      });
+
+      if (document.getElementById("preapproval_id").value == "") {
+        if (document.getElementById("plan").value == "standard") {
+          document.getElementById("mercadopagoButton").setAttribute("href", "https://www.mercadopago.com.uy/subscriptions/checkout?preapproval_id=2c9380848a782649018a848c4f740558");
+        } else if (document.getElementById("plan").value == "premium") {
+          document.getElementById("mercadopagoButton").setAttribute("href", "https://www.mercadopago.com.uy/subscriptions/checkout?preapproval_id=2c9380848a96e287018aa57bcb17076c");
+        }
+      } else {
+        document.getElementById("mercadopagoButton").classList.add('hidden');
+        document.getElementById('confirmationButton').classList.remove('hidden');
+      }
+
+      // Display the tooltip on hover
+      const tooltips = document.querySelectorAll('.cursor-help');
+
+      tooltips.forEach(tooltip => {
+        tooltip.addEventListener('mouseover', () => {
+          tooltip.querySelector('span').style.display = 'block';
+        });
+        tooltip.addEventListener('mouseout', () => {
+          tooltip.querySelector('span').style.display = 'none';
+        });
+      });
+    }
+  </script>
+  <!--AOS ANIMATION-->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
+</body>
+
+</html>
