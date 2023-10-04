@@ -32,6 +32,7 @@
             darkgreenloki: '#0f826a',
             goldloki: '#e6bd59',
             blackloki: '#121518',
+            mercadopago: '#009ee3',
           },
           fontFamily: {
             sans: ['Alexandria', 'sans-serif'],
@@ -139,7 +140,8 @@
                   </span>
                 </span>
               </label>
-              <select id="plan" name="plan" required class="w-full p-2 border border-grayloki rounded-md" onchange="updatePlanLink()">
+              <select id="plan" name="plan" required class="w-full p-2 border border-grayloki rounded-md"
+                onchange="updatePlanLink()">
                 <option value="standard">Standard</option>
                 <option value="premium">Premium</option>
               </select>
@@ -166,8 +168,25 @@
 
           <!-- Payment Button -->
           <div class="mt-8 mx-auto text-center">
+            <p>Por Favor, no olvides hacer click en el boton de <a
+                class="px-4 py-1.5 rounded-md bg-mercadopago font-medium text-white">Volver al sitio</a> al finalizar el
+              pago.</p>
+            <p class="mt-2">
+              <b>¡Es la única forma de completar el proceso de subscripción!</b>
+              <!-- Tooltip Icon and Text -->
+              <span class="ml-1 inline-block relative cursor-help">
+                <i class="fas fa-question-circle"></i>
+                <!-- Tooltip Content -->
+                <span
+                  class="absolute left-0 mt-2 p-2 w-96 bg-blackloki text-yellowlokiMedium rounded-md text-xs leading-tight"
+                  style="transform: translateX(-45%); z-index: 10; display: none;">
+                  Ante cualquier inconveniente comunicate con nosotros a traves de <a
+                    href="https://mindblocks.ai/loki#planes" class="gold-link">https://mindblocks.ai/loki#contacto</a>.
+                </span>
+              </span>
+            </p>
             <a id="mercadopagoButton">
-              <img class="mx-auto"
+              <img class="mx-auto mt-6"
                 src="https://http2.mlstatic.com/storage/dx-devsite/docs-assets/images/cow/cow-visual-wallet-default.es.png?v=4.8.3"
                 alt="cow-visual-wallet-default">
             </a>
@@ -206,7 +225,7 @@
       if (!results && !localStorageCheck) return null;
 
       if (!results && localStorageCheck) return (localStorage.getItem(name) || null);
-      
+
       if (!results[2]) return '';
       return decodeURIComponent(results[2].replace(/\+/g, ' '));
     }
