@@ -139,7 +139,7 @@
                   </span>
                 </span>
               </label>
-              <select id="plan" name="plan" required class="w-full p-2 border border-grayloki rounded-md">
+              <select id="plan" name="plan" required class="w-full p-2 border border-grayloki rounded-md" onchange="updatePlanLink()">
                 <option value="standard">Standard</option>
                 <option value="premium">Premium</option>
               </select>
@@ -160,7 +160,7 @@
                 </span>
               </span>
             </label>
-            <input required disabled type="text" id="preapproval_id" name="preapproval_id" required
+            <input required readonly type="text" id="preapproval_id" name="preapproval_id" required
               class="lg:text-center w-full p-2 border border-grayloki rounded-md">
           </div>
 
@@ -197,15 +197,15 @@
 
   <!-- JavaScript to handle the payment and confirmation buttons -->
   <script>
-    function getParameterByName(name, localStorage, url) {
+    function getParameterByName(name, localStorageCheck, url) {
       if (!url) url = window.location.href;
       name = name.replace(/[\[\]]/g, '\\$&');
       var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
         results = regex.exec(url);
 
-      if (!results && !localStorage) return null;
+      if (!results && !localStorageCheck) return null;
 
-      if (!results && localStorage) return localStorage.getItem(name) || null;
+      if (!results && localStorageCheck) return (localStorage.getItem(name) || null);
       
       if (!results[2]) return '';
       return decodeURIComponent(results[2].replace(/\+/g, ' '));
@@ -235,21 +235,18 @@
         if (id === 'plan' && !isValidPlan(value)) return;
         // if (id === 'preapproval_id' && !isValidPreaprovalPlanId(value)) return;
 
-        if (value) {
+        if (value && id != "plan") {
           document.getElementById(id).value = value;
-          document.getElementById(id).setAttribute("disabled", "disabled");
+          document.getElementById(id).setAttribute("readonly", "readonly");
 
           localStorage.setItem(id, value);
         }
       });
 
       if (document.getElementById("preapproval_id").value == "") {
-        if (document.getElementById("plan").value == "standard") {
-          document.getElementById("mercadopagoButton").setAttribute("href", "https://www.mercadopago.com.uy/subscriptions/checkout?preapproval_id=2c9380848a782649018a848c4f740558");
-        } else if (document.getElementById("plan").value == "premium") {
-          document.getElementById("mercadopagoButton").setAttribute("href", "https://www.mercadopago.com.uy/subscriptions/checkout?preapproval_id=2c9380848a96e287018aa57bcb17076c");
-        }
+        updatePlanLink()
       } else {
+        document.getElementById("plan").setAttribute("disabled", "disabled")
         document.getElementById("mercadopagoButton").classList.add('hidden');
         document.getElementById('confirmationButton').classList.remove('hidden');
       }
@@ -266,6 +263,16 @@
         });
       });
     }
+
+    // Update the MercadoPago checkout button link given the plan
+    function updatePlanLink(e) {
+      if (document.getElementById("plan").value == "standard") {
+        document.getElementById("mercadopagoButton").setAttribute("href", "https://www.mercadopago.com.uy/subscriptions/checkout?preapproval_plan_id=2c9380848af39989018af8fd5c360464");
+      } else if (document.getElementById("plan").value == "premium") {
+        document.getElementById("mercadopagoButton").setAttribute("href", "https://www.mercadopago.com.uy/subscriptions/checkout?preapproval_plan_id=2c9380848af39989018af90c69c50469");
+      }
+    }
+
   </script>
   <!--AOS ANIMATION-->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
