@@ -197,7 +197,7 @@
           <div class="mt-8 text-center hidden" id="confirmationButton">
             <button data-sitekey="6LeCIFgoAAAAAOeUuh9LiJPG4drCh4EoO9BTn2cb" data-callback='onSubmit' type="submit"
               class="g-recaptcha px-7 py-3 rounded-md bg-darkgreenloki text-yellowlokiMedium font-medium hover:bg-greenloki">
-              Confirm & Subscribe
+              ¡Subscribirse a Loki!
             </button>
           </div>
         </form>
@@ -217,6 +217,10 @@
 
   <!-- JavaScript to handle the payment and confirmation buttons -->
   <script>
+    function onSubmit(token) {
+      document.getElementById("paymentForm").submit();
+    }
+
     function getParameterByName(name, localStorageCheck, url) {
       if (!url) url = window.location.href;
       name = name.replace(/[\[\]]/g, '\\$&');
