@@ -533,9 +533,16 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
     // Using the function to prepopulate form fields
     window.onload = function () {
       ["subject", "phone", "name", "email", "message"].forEach(function (id) {
-        var value = getParameterByName(id);
+        let value = getParameterByName(id);
+        let element = document.getElementById(id)
+
         if (value) {
-          document.getElementById(id).value = value;
+          element.value = value;
+
+          if (id == "phone") {
+            element.setAttribute("readonly", "readonly");
+            element.classList.add("opacity-70")
+          }
         }
       });
     }
