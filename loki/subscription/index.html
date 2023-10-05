@@ -112,7 +112,7 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
           class="container p-6 md:p-20 bg-yellowlokiMedium rounded-lg mx-auto max-w-screen-lg text-grayloki">
 
           <!-- Subscription Title -->
-          <img src="../images/loki-avatar.svg" class="mx-auto mb-6" width="203" height="205" alt="Loki avantar">
+          <img src="../images/loki-avatar.svg" class="mx-auto mb-6 w-52" alt="Loki avantar">
 
           <!-- Subscription Form -->
           <form id="paymentForm" action="https://dev.loki.api.mindblocks.ai/payments/subscriptions" method="post">
@@ -183,7 +183,7 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
             </div>
 
             <!-- Payment Button -->
-            <div class="mt-8 mx-auto text-center">
+            <div id="mercadopagoContainer" class="mt-2 lg:mt-4 mx-auto text-center">
               <p>Por Favor, no olvides hacer click en el boton de <a
                   class="px-4 py-1.5 rounded-md bg-mercadopago font-medium text-white">Volver al sitio</a> al finalizar
                 el
@@ -211,7 +211,7 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
             </div>
 
             <!-- Confirmation Button (hidden by default, will show after payment) -->
-            <div class="mt-8 text-center hidden" id="confirmationButton">
+            <div class="mt-2 mb-16 lg:mb-0 lg:mt-8 text-center hidden" id="confirmationButton">
               <button data-sitekey="6LeCIFgoAAAAAOeUuh9LiJPG4drCh4EoO9BTn2cb" data-callback='onSubmit' type="submit"
                 class="g-recaptcha px-7 py-3 rounded-md bg-darkgreenloki text-yellowlokiMedium font-medium hover:bg-greenloki">
                 ¡Subscribirse a Loki!
@@ -225,7 +225,7 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
 
     <!--Footer Section Start-->
     <section class="bg-yellowloki bg-auto bg-points bg-center bg-bottom bg-no-repeat relative">
-      <p class="px-6 text-center text-darkgreenloki pt-12 pb-12">© 2023 Mindblocks</p>
+      <p class="px-6 text-center text-darkgreenloki pt-3 lg:pt-12 pb-3 lg:pb-12">© 2023 Mindblocks</p>
       <div class="bg-bottom bg-auto bg-repeat-y h-4 block bg-contain lg:bg-cover"></div>
     </section>
     <!--Footer Section End-->
@@ -306,7 +306,7 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
         updatePlanLink()
       } else {
         document.getElementById("plan").setAttribute("disabled", "disabled")
-        document.getElementById("mercadopagoButton").classList.add('hidden');
+        document.getElementById("mercadopagoContainer").classList.add('hidden');
         document.getElementById('confirmationButton').classList.remove('hidden');
       }
 
