@@ -103,19 +103,20 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
 
   <div class="main-container flex flex-col">
     <!--Header End-->
-    <div class="flex-grow container mx-auto max-w-screen-lg relative mt-5 lg:mt-20 px-6 mb-10 lg:px-0">
+    <div class="flex-grow container mx-auto max-w-screen-lg relative mt-8 lg:mt-20 px-6 mb-10 lg:px-0">
       
       <!--Main Content Start-->
       <section data-aos="fade-down" data-aos-duration="1000" class="flex-grow grid gap-10 z-15 ">
         <!-- Subscription Title -->
-        <div id="subscription-form" class="absolute -mt-20 lg:-mt-14"></div>
-        <img src="../images/loki-avatar.svg" class="-mb-20 lg:-mb-24 relative z-20 mx-auto w-52 overflow" alt="Loki avantar">
+        <div id="subscription-form" class="absolute -mt-20 lg:-mt-16"></div>
+        <img src="../images/loki-avatar.svg" class="-mb-20 lg:-mb-24 relative z-20 mx-auto overflow" width="203"
+        height="205" alt="Loki avatar">
         <div data-aos="fade" data-aos-duration="2000"
           class="container p-6 md:p-14 bg-yellowlokiMedium rounded-lg mx-auto max-w-screen-lg text-grayloki overflow-hidden">       
 
           <!-- Subscription Form -->
           <form id="paymentForm" action="https://dev.loki.api.mindblocks.ai/payments/subscriptions" method="post">
-            <div class="grid grid-cols-1 lg:grid-cols-2 mt-6">
+            <div class="grid grid-cols-1 lg:grid-cols-2 mt-4">
               <!-- Phone Input with Tooltip -->
               <div class="mr-0 lg:mr-3 mb-6">
                 <label for="phone" class="block">
@@ -154,7 +155,7 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
                     </span>
                   </span>
                 </label>
-                <select id="plan" name="plan_display" required class="block w-full bg-yellowlokiDark rounded-lg  p-1 py-1 px-2 focus:outline-none focus:ring-1 focus:ring-amber-500 invalid:border-red-500 invalid:border-red-500 focus:invalid:border-red-500 focus:invalid:border-red-500"
+                <select id="plan" name="plan_display" required class="block w-full bg-yellowlokiDark rounded-lg p-1 py-1 px-2 focus:outline-none focus:ring-1 focus:ring-amber-500 invalid:border-red-500 invalid:border-red-500 focus:invalid:border-red-500 focus:invalid:border-red-500"
                   onchange="updatePlanLink()">
                   <option value="standard">Standard</option>
                   <option value="premium">Premium</option>
@@ -182,9 +183,9 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
             </div>
 
             <!-- Payment Button -->
-            <div id="mercadopagoContainer" class="mt-2 lg:mt-4 mx-auto text-center">
+            <div id="mercadopagoContainer" class="mt-2 lg:mt-4 mx-auto text-center text-xs md:text-md">
               <p>Por Favor, no olvides hacer click en el boton de <a
-                  class="px-4 py-1.5 rounded-md bg-mercadopago font-medium text-white">Volver al sitio</a> al finalizar
+                  class="px-1.5 md:px-4 py-0.5 md:py-1.5 rounded-md bg-mercadopago font-medium text-white">Volver al sitio</a> al finalizar
                 el
                 pago.</p>
               <p class="mt-2">
