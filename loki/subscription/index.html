@@ -79,6 +79,10 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
     .gold-link:hover {
       text-decoration: underline;
     }
+
+    .filter-yellowlokiMedium {
+      filter: invert(99%) sepia(12%) saturate(328%) hue-rotate(342deg) brightness(115%) contrast(91%)
+    }
   </style>
 
 
@@ -104,15 +108,15 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
   <div class="main-container flex flex-col">
     <!--Header End-->
     <div class="flex-grow container mx-auto max-w-screen-lg relative mt-8 lg:mt-20 px-6 mb-10 lg:px-0">
-      
+
       <!--Main Content Start-->
       <section data-aos="fade-down" data-aos-duration="1000" class="flex-grow grid gap-10 z-15 ">
         <!-- Subscription Title -->
         <div id="subscription-form" class="absolute -mt-20 lg:-mt-16"></div>
         <img src="../images/loki-avatar.svg" class="-mb-20 lg:-mb-24 relative z-20 mx-auto overflow" width="203"
-        height="205" alt="Loki avatar">
+          height="205" alt="Loki avatar">
         <div data-aos="fade" data-aos-duration="2000"
-          class="container p-6 md:p-14 bg-yellowlokiMedium rounded-lg mx-auto max-w-screen-lg text-grayloki overflow-hidden">       
+          class="container p-6 md:p-14 bg-yellowlokiMedium rounded-lg mx-auto max-w-screen-lg text-grayloki overflow-hidden">
 
           <!-- Subscription Form -->
           <form id="paymentForm" action="https://dev.loki.api.mindblocks.ai/payments/subscriptions" method="post">
@@ -155,7 +159,8 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
                     </span>
                   </span>
                 </label>
-                <select id="plan" name="plan_display" required class="block w-full bg-yellowlokiDark rounded-lg p-1 py-1 px-2 focus:outline-none focus:ring-1 focus:ring-amber-500 invalid:border-red-500 invalid:border-red-500 focus:invalid:border-red-500 focus:invalid:border-red-500"
+                <select id="plan" name="plan_display" required
+                  class="block w-full bg-yellowlokiDark rounded-lg p-1 py-1 px-2 focus:outline-none focus:ring-1 focus:ring-amber-500 invalid:border-red-500 invalid:border-red-500 focus:invalid:border-red-500 focus:invalid:border-red-500"
                   onchange="updatePlanLink()">
                   <option value="standard">Standard</option>
                   <option value="premium">Premium</option>
@@ -185,7 +190,8 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
             <!-- Payment Button -->
             <div id="mercadopagoContainer" class="mt-2 lg:mt-4 mx-auto text-center text-xs md:text-md">
               <p>Por Favor, no olvides hacer click en el boton de <a
-                  class="px-1.5 md:px-4 py-0.5 md:py-1.5 rounded-md bg-mercadopago font-medium text-white">Volver al sitio</a> al finalizar
+                  class="px-1.5 md:px-4 py-0.5 md:py-1.5 rounded-md bg-mercadopago font-medium text-white">Volver al
+                  sitio</a> al finalizar
                 el
                 pago.</p>
               <p class="mt-2">
@@ -210,13 +216,20 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
               </a>
             </div>
 
+            <p id="subscription-error" class="text-red-500 mb-5 hidden">Mensaje de error</p>
             <!-- Confirmation Button (hidden by default, will show after payment) -->
             <div class="mt-2 mb-16 lg:mb-0 lg:mt-8 text-center hidden" id="confirmationButton">
+              <img id="loading-spinner" src="images/spinner.gif" class="hidden mx-auto w-1/12" alt="Enviando...">
               <button data-sitekey="6LeCIFgoAAAAAOeUuh9LiJPG4drCh4EoO9BTn2cb" data-callback='onSubmit' type="submit"
                 class="g-recaptcha px-7 py-3 rounded-md bg-darkgreenloki text-yellowlokiMedium font-medium hover:bg-greenloki">
                 ¡Subscribirse a Loki!
               </button>
+              <a href="https://wa.me/59893476717?text=Volvi!" target="_blank" id="lokiRedirect"
+                class="bg-greenloki text-lg md:text-base px-6 py-3 my-4 inline-block text-yellowlokiMedium rounded-full shadow-lg hover:opacity-70 transition ease-in-out duration-500 hidden"><img
+                  src="../images/whatsapp-icon.svg" alt="" width="26" height="26" class="float-left mr-3 filter-yellowlokiMedium">¡Volver con Loki!</a>
             </div>
+            <p id="subscription-success" class="text-amber-600 text-center mt-4 hidden">¡La Subscription se procesó
+              correctamente!</p>
           </form>
         </div>
       </section>
@@ -235,8 +248,45 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
 
   <!-- JavaScript to handle the payment and confirmation buttons -->
   <script>
-    function onSubmit(token) {
-      document.getElementById("paymentForm").submit();
+    async function onSubmit(token) {
+      const form = document.getElementById("paymentForm");
+      document.getElementById('subscription-success').classList.add('hidden');
+      document.getElementById('subscription-error').classList.add('hidden');
+
+      if (!form.checkValidity()) {
+        form.reportValidity()
+        return;
+      }
+
+      const button = document.getElementById('confirmationButton');
+      const spinner = document.getElementById('loading-spinner')
+
+      button.disabled = true;
+      button.classList.add('hidden');
+      spinner.classList.remove('hidden');
+
+      const formData = new FormData(form);
+
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: formData
+      });
+
+      const responseData = await response.json();
+
+      console.log(responseData);
+
+      if (response.ok) {
+        document.getElementById('subscription-success').classList.remove('hidden');
+        document.getElementById('lokiRedirect').classList.remove('hidden');
+      } else {
+        document.getElementById('subscription-error').classList.remove('hidden');
+        document.getElementById('subscription-error').innerHTML = responseData.message;
+        button.disabled = false;
+        button.classList.remove('hidden');
+      }
+
+      spinner.classList.add('hidden');
     }
 
     function adjustHeight() {
@@ -295,7 +345,7 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
 
           if (id != "plan") {
             element.setAttribute("readonly", "readonly");
-            element.classList.add("opacity-70"); 
+            element.classList.add("opacity-70");
           }
 
           localStorage.setItem(id, value);
