@@ -219,7 +219,7 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
             <p id="subscription-error" class="text-red-500 mb-5 hidden">Mensaje de error</p>
             <!-- Confirmation Button (hidden by default, will show after payment) -->
             <div class="mt-2 mb-16 lg:mb-0 lg:mt-8 text-center hidden" id="confirmationButton">
-              <img id="loading-spinner" src="images/spinner.gif" class="hidden mx-auto w-1/12" alt="Enviando...">
+              <img id="loading-spinner" src="../images/spinner.gif" class="hidden mx-auto w-1/12" alt="Enviando...">
               <button data-sitekey="6LeCIFgoAAAAAOeUuh9LiJPG4drCh4EoO9BTn2cb" data-callback='onSubmit' type="submit"
                 class="g-recaptcha px-7 py-3 rounded-md bg-darkgreenloki text-yellowlokiMedium font-medium hover:bg-greenloki">
                 ¡Subscribirse a Loki!
@@ -278,8 +278,10 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
       console.log(responseData);
 
       if (response.ok) {
+        alert('¡La subscripción se procesó correctamente!')
         document.getElementById('lokiRedirect').classList.remove('hidden');
       } else {
+        alert('¡La subscripción no se procesó correctamente!')
         document.getElementById('subscription-error').classList.remove('hidden');
         document.getElementById('subscription-error').innerHTML = responseData.message;
         button.disabled = false;
