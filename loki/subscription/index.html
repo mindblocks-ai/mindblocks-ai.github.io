@@ -224,12 +224,14 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
                 class="g-recaptcha px-7 py-3 rounded-md bg-darkgreenloki text-yellowlokiMedium font-medium hover:bg-greenloki">
                 ¡Subscribirse a Loki!
               </button>
-              <a href="https://wa.me/59893476717?text=Volvi!" target="_blank" id="lokiRedirect"
-                class="bg-greenloki text-lg md:text-base px-6 py-3 my-4 inline-block text-yellowlokiMedium rounded-full shadow-lg hover:opacity-70 transition ease-in-out duration-500 hidden"><img
-                  src="../images/whatsapp-icon.svg" alt="" width="26" height="26" class="float-left mr-3 filter-yellowlokiMedium">¡Volver con Loki!</a>
             </div>
-            <p id="subscription-success" class="text-amber-600 text-center mt-4 hidden">¡La Subscription se procesó
+            <div class="mt-2 mb-16 lg:mb-0 lg:mt-8 text-center hidden" id="lokiRedirect"></div>
+              <a href="https://wa.me/59893476717?text=Volvi!" target="_blank"
+                  class="bg-greenloki text-lg md:text-base px-6 py-3 my-4 inline-block text-yellowlokiMedium rounded-full shadow-lg hover:opacity-70 transition ease-in-out duration-500 hidden"><img
+                    src="../images/whatsapp-icon.svg" alt="" width="26" height="26" class="float-left mr-3 filter-yellowlokiMedium">¡Volver con Loki!</a>
+              <p class="text-amber-600 text-center mt-4 hidden">¡La Subscription se procesó
               correctamente!</p>
+            </div>
           </form>
         </div>
       </section>
@@ -277,7 +279,6 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
       console.log(responseData);
 
       if (response.ok) {
-        document.getElementById('subscription-success').classList.remove('hidden');
         document.getElementById('lokiRedirect').classList.remove('hidden');
       } else {
         document.getElementById('subscription-error').classList.remove('hidden');
