@@ -162,8 +162,8 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
                 <select id="plan" name="plan_display" required
                   class="block w-full bg-yellowlokiDark rounded-lg p-1 py-1 px-2 focus:outline-none focus:ring-1 focus:ring-amber-500 invalid:border-red-500 invalid:border-red-500 focus:invalid:border-red-500 focus:invalid:border-red-500"
                   onchange="updatePlanLink()">
-                  <option value="standard">Standard</option>
-                  <option value="premium">Premium</option>
+                  <option value="standard">Standard - UYU 450</option>
+                  <option value="premium">Premium - UYU 1400</option>
                 </select>
                 <input id="plan-hidden" type="hidden" name="plan" value="standard">
               </div>
@@ -382,10 +382,12 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
       document.getElementById("plan-hidden").value = plan.value;
 
       if (plan.value == "standard") {
-        document.getElementById("mercadopagoButton").setAttribute("href", "https://www.mercadopago.com.uy/subscriptions/checkout?preapproval_plan_id=2c9380848b053057018b0fb0da1b0541");
+        document.getElementById("mercadopagoButton").setAttribute("href", "https://www.mercadopago.com.uy/subscriptions/checkout?preapproval_plan_id=2c9380848b062228018b1172ba350580");
+        //document.getElementById("mercadopagoButton").setAttribute("href", "https://www.mercadopago.com.uy/subscriptions/checkout?preapproval_plan_id=2c9380848b053057018b0fb0da1b0541");
         //document.getElementById("mercadopagoButton").setAttribute("href", "https://www.mercadopago.com.uy/subscriptions/checkout?preapproval_plan_id=2c9380848af39989018af8fd5c360464");
       } else if (plan.value == "premium") {
-        document.getElementById("mercadopagoButton").setAttribute("href", "https://www.mercadopago.com.uy/subscriptions/checkout?preapproval_plan_id=2c9380848af39989018af90c69c50469");
+        document.getElementById("mercadopagoButton").setAttribute("href", "https://www.mercadopago.com.uy/subscriptions/checkout?preapproval_plan_id=2c9380848b053057018b117952ed062d");
+        //document.getElementById("mercadopagoButton").setAttribute("href", "https://www.mercadopago.com.uy/subscriptions/checkout?preapproval_plan_id=2c9380848af39989018af90c69c50469");
       }
     }
 
