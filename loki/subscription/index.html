@@ -164,6 +164,8 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
                   onchange="updatePlanLink()">
                   <option value="standard">Standard - UYU 450</option>
                   <option value="premium">Premium - UYU 1400</option>
+                  <option value="standard-y">Standard Anual - UYU 4.500 (¡2 meses de regalo!)</option>
+                  <option value="premium-y">Premium - UYU 14.000 (¡2 meses de regalo!)</option>
                 </select>
                 <input id="plan-hidden" type="hidden" name="plan" value="standard">
               </div>
@@ -388,6 +390,10 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
       } else if (plan.value == "premium") {
         document.getElementById("mercadopagoButton").setAttribute("href", "https://www.mercadopago.com.uy/subscriptions/checkout?preapproval_plan_id=2c9380848b053057018b117952ed062d");
         //document.getElementById("mercadopagoButton").setAttribute("href", "https://www.mercadopago.com.uy/subscriptions/checkout?preapproval_plan_id=2c9380848af39989018af90c69c50469");
+      } else if (plan.value == "standard-y") {
+        document.getElementById("mercadopagoButton").setAttribute("href", "https://www.mercadopago.com.uy/subscriptions/checkout?preapproval_plan_id=2c9380848b053057018b117593e7062a");
+      } else if (plan.value == "premium-y") {
+        document.getElementById("mercadopagoButton").setAttribute("href", "https://www.mercadopago.com.uy/subscriptions/checkout?preapproval_plan_id=2c9380848b062228018b117bb3d80588");
       }
     }
 
