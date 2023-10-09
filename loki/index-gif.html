@@ -13,6 +13,17 @@
   <meta property="og:description" content="Desbloquea todo el poder de ChatGPT desde tu Whatsapp con Loki. ¡No pierdas más tiempo en tareas cotidianas! 
 Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder de ChatGPT en tu Whatsapp. ">
 
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-MP5RBSTC');</script>
+  <!-- End Google Tag Manager -->
+
   <!--ICONS-->
   <link rel="shortcut icon" href="images/favicon.ico">
   <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png">
@@ -24,10 +35,15 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
 
   <!--TAILWINDCSS-->
   <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://www.google.com/recaptcha/api.js"></script>
   <script>
     tailwind.config = {
       theme: {
         extend: {
+          width: {
+            '1/9': '11.1111111%',
+            '1/12': '8.3333333%',
+          },
           colors: {
             grayloki: '#222f3b',
             graylokiMedium: '#35424d',
@@ -42,6 +58,7 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
           fontFamily: {
             sans: ['Alexandria', 'sans-serif'],
           },
+
           backgroundImage: {
             'hero': "url('images/background.jpg')",
             'bottom': "url('images/line.svg')",
@@ -77,12 +94,35 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
     .active:before {
       content: "\2212";
     }
+
+    .gold-link {
+      color: #e6bd59 !important;
+    }
+
+    .gold-link:hover {
+      text-decoration: underline;
+    }
   </style>
 
 
 </head>
 
 <body class="bg-grayloki font-sans bg-hero bg-auto bg-no-repeat bg-top">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MP5RBSTC" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z7WSYE6J4P"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'G-Z7WSYE6J4P');
+  </script>
+  <!-- End of Google tag (gtag.js) -->
 
   <!--Header Start-->
   <header class="mx-auto sticky top-0 z-50 bg-header bg-top bg-repeat-x">
@@ -150,14 +190,15 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
       <div
         class="relative mx-auto lg:m-0 max-w-screen-sm lg:max-w-none top-0 lg:mt-36 lg:ml-10 text-center lg:text-left">
         <h1 class="text-yellowloki text-3xl font-bold my-4 leading-10">Desbloquea todo el poder de ChatGPT desde tu
-          Whatsap con Loki.</h1>
+          Whatsapp con Loki.</h1>
         <h2 class="text-yellowloki text-lg font-light">¡No pierdas más tiempo en tareas cotidianas!
-          Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder de ChatGPT en tu Whatsapp.
+          Loki está para ayudarte, tu nuevo asistente virtual personalizado con todo el poder de ChatGPT a solo un
+          mensaje de distancia.
         </h2>
         <br>
-        <a href="#" target="_blank"
+        <a href="https://wa.me/59893476717?text=Hola%20Loki!%20como%20estas%3F" target="_blank"
           class="bg-greenloki text-lg md:text-base px-6 py-3 my-4 inline-block rounded-full shadow-lg hover:opacity-70 transition ease-in-out duration-500"><img
-            src="images/whatsapp-icon.svg" alt="" width="26" height="26" class="float-left mr-3">¡Enviale un
+            src="images/whatsapp-icon.svg" alt="" width="26" height="26" class="float-left mr-3">¡Mandale un
           mensaje!</a>
       </div>
     </section>
@@ -230,11 +271,13 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
       <div class="grid py-6 pb-16 lg:py-32 bg-points bg-center bg-top bg-no-repeat">
         <h1 class="text-yellowloki text-3xl lg:text-5xl font-bold mt-8 lg:mt-4 mb-4 lg:mb-4 leading-10 text-center">
           ELIGE TU PLAN</h1>
-        <p class="text-yellowloki font-light text-lg text-center md:w-2/3 mx-auto mb-4 lg:mb-8 ">Lorem ipsum dolor sit
-          amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p>
-        <p class="text-center w-full md:w-2/3 mx-auto"><a href="#" class="mx-auto inline-block bg-yellowloki text-grayloki px-6 py-2 rounded-full 
+        <p class="text-yellowloki font-light text-lg text-center md:w-2/3 mx-auto mb-4 lg:mb-8 ">Hay un plan para cada
+          persona, solo debes hacer click en <b>Contratar</b> y Loki te guiara con el resto. Recuerda tambíen que
+          contamos con una opción gratuita, excelente para descubrir todo lo que Loki puede hacer por ti.
+        </p>
+        <p class="text-center w-full md:w-2/3 mx-auto"><a href="#" class="cursor-not-allowed pointer-events-none opacity-20 mx-auto inline-block bg-yellowloki text-grayloki px-6 py-2 rounded-full 
 				 transition ease-in-out duration-500">Mensual</a> <a href="#"
-            class="mx-auto inline-block border text-yellowloki border-yellowloki px-6 py-2 ml-4 rounded-full hover:bg-yellowloki hover:text-grayloki transition ease-in-out duration-500">Anual</a>
+            class="cursor-not-allowed pointer-events-none opacity-20  mx-auto inline-block border text-yellowloki border-yellowloki px-6 py-2 ml-4 rounded-full hover:bg-yellowloki hover:text-grayloki transition ease-in-out duration-500">Anual</a>
         </p>
         <div
           class="grid grid-cols-1 w-full sm:w-9/12 md:w-1/2 lg:w-full lg:grid-cols-3 gap-0 mt-0 lg:mt-14 mx-auto gap-y-10">
@@ -244,17 +287,21 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
             <ul
               class="text-left text-yellowloki font-normal list-image-[url(images/check.svg)] list-outside marker:text-4xl ml-8 mt-10 mb-10">
               <li>Interacciones permitidas: <br>
-                3000 palabras/mes aprox. </li>
+                6000 palabras/mes aprox. </li>
               <li>Minutos de audio permitidos: <br>
                 3 min/mes aprox.</li>
+              <li>Contexto de la conversación: <br>
+                1.800 palabras aprox.</li>
+              <li>Modelo de IA: <br>
+                GPT-3.5</li>
             </ul>
-            <a href="#"
+            <a href="https://wa.me/59893476717?text=Hola%20Loki!%20como%20estas%3F"
               class="mx-auto inline-block border text-xl font-bold text-goldloki border-goldloki px-6 py-2 rounded-full hover:bg-goldloki hover:text-grayloki transition ease-in-out duration-500">Empezar</a>
           </div>
           <div class="bg-yellowloki rounded-2xl text-center lg:-mb-8">
             <h3 class="bg-greenloki text-yellowloki rounded-t-2xl pt-4 pb-3 tracking-wide text-xl">MÁS POPULAR</h3>
             <div class="px-8 pt-8 pb-8 lg:pb-14 rounded-2xl lg:rounded-b-2xl bg-yellowloki">
-              <h2 class="text-greenloki font-bold text-2xl mb-4">Premium</h2>
+              <h2 class="text-greenloki font-bold text-2xl mb-4">Estandard</h2>
               <p class="text-grayloki line-through text-2xl">U$D <strong>13</strong></p>
               <p class="text-grayloki text-2xl">U$D <span class="font-bold text-5xl">8.99</span> /mes</p>
               <p class="text-greenloki font-bold text-lg">OFERTA LANZAMIENTO</p>
@@ -264,13 +311,17 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
                   750.000 palabras/mes aprox. </li>
                 <li>Minutos de audio permitidos: <br>
                   60 min/mes aprox.</li>
+                <li>Contexto de la conversación: <br>
+                  3.200 palabras aprox.</li>
+                <li>Modelo de IA: <br>
+                  GPT-3.5</li>
               </ul>
-              <a href="#"
+              <a href="https://wa.me/59893476717?text=/standard"
                 class="mx-auto inline-block border text-xl font-bold text-yellowloki bg-greenloki px-6 py-2 rounded-full hover:opacity-80 transition ease-in-out duration-500">Contratar</a>
             </div>
           </div>
           <div class="bg-graylokiMedium rounded-2xl lg:rounded-l-none p-8 text-center lg:mt-14">
-            <h2 class="text-greenloki font-bold text-2xl mb-4">Empresarial</h2>
+            <h2 class="text-greenloki font-bold text-2xl mb-4">Premium</h2>
             <p class="text-yellowloki line-through text-2xl">U$D <strong>40</strong></p>
             <p class="text-yellowloki text-2xl">U$D <span class="font-bold text-5xl">27.90</span> /mes</p>
             <p class="text-greenloki font-bold text-lg">OFERTA LANZAMIENTO</p>
@@ -280,8 +331,12 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
                 3.750.000 palabras/mes aprox. </li>
               <li>Minutos de audio permitidos: <br>
                 180 min/mes aprox.</li>
+              <li>Contexto de la conversación: <br>
+                3.200 a 12.000 palabras aprox.</li>
+              <li>Modelo de IA: <br>
+                GPT-3.5 o <b>GPT-4!</b> Proximamente</li>
             </ul>
-            <a href="#"
+            <a href="https://wa.me/59893476717?text=/premium"
               class="mx-auto inline-block border text-xl font-bold text-greenloki border-greenloki px-6 py-2 rounded-full hover:bg-greenloki hover:text-grayloki transition ease-in-out duration-500">Contratar</a>
           </div>
         </div>
@@ -303,14 +358,28 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
       <div class="content hidden text-yellowloki transition ease-in-out duration-500">
         <p class="font-light pl-5 pt-3">Sí, Loki posee un modo gratuito, cuyas interacciones están limitadas de forma
           mensual. Para hacer uso ilimitado de Loki, es necesario adquirir una suscripción de las mencionadas en el
-          siguiente [apartado].</p>
+          <a class="gold-link" href="#planes">apartado de planes</a>. Sin embargo por el momento solo se aceptan pruebas
+          gratuitas en nuestra Beta, si quieres acceder solo envianos un mensaje con tu número de whatsapp a traves de
+          nuestro <a class="gold-link" href="#contacto">formulario de contacto</a>.
+        </p>
+      </div>
+      <div class="border-t border-yellowloki my-4 opacity-40 clear-both"></div>
+      <button type="button" class="collapsible text-yellowloki text-lg text-left font-bold">Loki dice que no me tiene en
+        su lista</button>
+      <div class="content hidden text-yellowloki transition ease-in-out duration-500">
+        <p class="font-light pl-5 pt-3">Sí, esto se debe a que por el momento solo estamos aceptando un numero limitado
+          de usuarios para que prueben a Loki previo al lanzamiento oficial. La participacion es totalmente gratuida, si
+          quieres formar parte solo tienes que enviarnos un mensaje con tu número de whatsapp a traves de
+          nuestro <a class="gold-link" href="#contacto">formulario de contacto</a>.
+        </p>
       </div>
       <div class="border-t border-yellowloki my-4 opacity-40"></div>
       <button type="button" class="collapsible text-yellowloki text-lg text-left font-bold">¿Cómo puedo contactarme con
         Loki?</button>
       <div class="content hidden text-yellowloki transition ease-in-out duration-500">
         <p class="font-light pl-5 pt-3">Muy fácil, sólo tenés que agregarlo en tus contactos y enviarle un mensaje de
-          whatsapp. (Podés hacerlo con el link en la parte superior).</p>
+          whatsapp. <a class="gold-link" href="https://wa.me/59893476717?text=Hola%20Loki!%20como%20estas%3F">Este
+            link</a> te llevara a hablar con él directamente.</p>
       </div>
       <div class="border-t border-yellowloki my-4 opacity-40"></div>
       <button type="button" class="collapsible text-yellowloki text-lg text-left font-bold">¿Sí o sí tengo que
@@ -359,14 +428,28 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
       <div class="content hidden text-yellowloki transition ease-in-out duration-500">
         <p class="font-light pl-5 pt-3">Al estar basado en ChatGPT, Loki comparte sus limitaciones. Por ejemplo, sólo
           posee información hasta Septiembre 2021 y no es capaz de interpretar imágenes o archivos (por ahora). Para más
-          información sobre estas limitaciones, podés acceder a https://openai.com/blog/chatgpt.</p>
+          información sobre estas limitaciones, podés acceder a <a
+            class="gold-link">https://openai.com/blog/chatgpt</a>.</p>
       </div>
       <div class="border-t border-yellowloki my-4 opacity-40"></div>
       <button type="button" class="collapsible text-yellowloki text-lg text-left font-bold">¿Cómo puedo ponerme en
         contacto si tengo dudas o un problema?</button>
       <div class="content hidden text-yellowloki transition ease-in-out duration-500">
-        <p class="font-light pl-5 pt-3">Podés utilizar el formulario que se encuentra al pie de la página o enviándonos
-          un correo a loki.chat@mindblocks.ai.</p>
+        <p class="font-light pl-5 pt-3">Podés utilizar el formulario que se encuentra <a class="gold-link"
+            href="#contacto">al pie de la
+            página</a> o enviándonos
+          un correo a <a class="gold-link" href="mailto:loki.chat@mindblocks.ai">loki.chat@mindblocks.ai</a>.</p>
+      </div>
+      <div class="border-t border-yellowloki my-4 opacity-40"></div>
+      <button type="button" class="collapsible text-yellowloki text-lg text-left font-bold">¿Donde puedo encontrar
+        información sobre los términos y condiciones o las políticas de privacidad?</button>
+      <div class="content hidden text-yellowloki transition ease-in-out duration-500">
+        <p class="font-light pl-5 pt-3">Los mismos se encuentran publicados en nuestro sitio web y puedes acceder
+          ingresando en los siguientes links:</p>
+        <ul class="list-disc pl-5 ml-10 mt-6">
+          <li class="mb-2"><a href="https://mindblocks.ai/loki/tyc">Términos y Condiciones</a></li>
+          <li class="mb-2"><a href="https://mindblocks.ai/loki/tyc">Políticas de Privacidad</a></li>
+        </ul>
       </div>
       <div class="border-t border-yellowloki my-4 opacity-40"></div>
     </div>
@@ -374,43 +457,140 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
   <!--Faqs End-->
 
   <!--Contacto Start-->
-  <section class="bg-yellowloki bg-auto bg-points bg-center bg-bottom  bg-no-repeat py-14 lg:py-20 px-6 relative">
+  <section class="bg-yellowloki bg-auto bg-points bg-center bg-bottom bg-no-repeat py-14 lg:py-20 px-6 relative">
     <div id="contacto" class="absolute -mt-20 lg:-mt-14"></div>
     <div data-aos="fade" data-aos-duration="2000"
-      class="container p-6 md:p-20 bg-yellowlokiMedium rounded-lg mx-auto md:w-[780px] text-grayloki">
+      class="container p-6 md:p-20 bg-yellowlokiMedium rounded-lg mx-auto md:w-[780px] text-grayloki overflow-hidden">
       <h2 class="text-center text-3xl md:text-5xl uppercase text-grayloki font-bold">Contacto</h2>
       <p class="text-darkgreenloki py-5">No seremos Loki, ¡pero también estamos para ayudarte!</p>
-      <form>
+      <form id="contact-form" action="https://loki.api.mindblocks.ai/notifications/email" method="post">
         <div class="grid grid-cols-1 lg:grid-cols-2">
-          <div class="mr-0 lg:mr-3">
-            <label for="nombre" class="block">Nombre</label>
-            <input
+          <div class="mr-0 lg:mr-3 mb-4">
+            <label for="name" class="block">Nombre <span class="text-red-500">*</span></label>
+            <input name="name"
               class="block w-full bg-yellowlokiDark rounded-lg py-1 px-2 focus:outline-none focus:ring-1 focus:ring-amber-500 invalid:border-red-500 invalid:border-red-500 focus:invalid:border-red-500 focus:invalid:border-red-500"
-              type="text" id="nombre">
+              type="text" required placeholder="Carlos" id="name">
           </div>
-          <div class="ml-0 lg:ml-3">
-            <label for="email" class="block">E-mail</label>
-            <input
+          <div class="ml-0 lg:ml-3 mb-4">
+            <label for="subject" class="block">Motivo <span class="text-red-500">*</span></label>
+            <input name="subject"
               class="block w-full bg-yellowlokiDark rounded-lg  p-1 py-1 px-2 focus:outline-none focus:ring-1 focus:ring-amber-500 invalid:border-red-500 invalid:border-red-500 focus:invalid:border-red-500 focus:invalid:border-red-500"
-              type="email" id="email">
+              type="text" required placeholder="Futuras Mejoras" id="subject">
           </div>
         </div>
-        <br>
-        <label for="Motivo" class="block">Motivo</label>
-        <textarea
-          class="block w-full bg-yellowlokiDark rounded-lg  p-1 py-1 px-2 focus:outline-none focus:ring-1 focus:ring-amber-500 invalid:border-red-500 invalid:border-red-500 focus:invalid:border-red-500 focus:invalid:border-red-500"
-          rows="3" id="Motivo"></textarea>
-        <br>
-        <p class="text-red-500 mb-5">Mensaje de error Mensaje de error Mensaje de error </p>
-        <p class="text-center"> <a href="#"
-            class="mx-auto inline-block bg-darkgreenloki text-yellowloki px-6 py-2 rounded-full hover:opacity-80 transition ease-in-out duration-500">Enviar</a>
+        <div class="grid grid-cols-1 lg:grid-cols-2">
+          <div class="mr-0 lg:mr-3 mb-4">
+            <label for="email" class="block">E-mail <span class="text-red-500">*</span></label>
+            <input name="email"
+              class="block w-full bg-yellowlokiDark rounded-lg  p-1 py-1 px-2 focus:outline-none focus:ring-1 focus:ring-amber-500 invalid:border-red-500 invalid:border-red-500 focus:invalid:border-red-500 focus:invalid:border-red-500"
+              type="email" required placeholder="c.gardel@gmail.com" id="email">
+          </div>
+          <div class="ml-0 lg:ml-3 mb-4">
+            <label for="phone" class="block">Teléfono</label>
+            <input name="phone"
+              class="block w-full bg-yellowlokiDark rounded-lg py-1 px-2 focus:outline-none focus:ring-1 focus:ring-amber-500 invalid:border-red-500 invalid:border-red-500 focus:invalid:border-red-500 focus:invalid:border-red-500"
+              type="phone" placeholder="59898123456" id="phone">
+          </div>
+        </div>
+        <label for="message" class="block">Mensaje <span class="text-red-500">*</span></label>
+        <textarea name="message"
+          class="block w-full bg-yellowlokiDark rounded-lg  p-1 py-1 px-2 focus:outline-none focus:ring-1 focus:ring-amber-500 invalid:border-red-500 invalid:border-red-500 focus:invalid:border-red-500 focus:invalid:border-red-500 mb-4"
+          rows="3" required id="message"></textarea>
+        <p id="email-error" class="text-red-500 mb-5 hidden">Mensaje de error</p>
+        <p class="text-center">
+          <img id="loading-spinner" src="images/spinner.gif" class="hidden mx-auto w-1/12" alt="Enviando...">
+          <button data-sitekey="6LeCIFgoAAAAAOeUuh9LiJPG4drCh4EoO9BTn2cb" data-callback='onSubmit' type="submit"
+            class="g-recaptcha mx-auto inline-block bg-darkgreenloki text-yellowloki px-6 py-2 rounded-full hover:opacity-80 transition ease-in-out duration-500">
+            Enviar
+          </button>
         </p>
-        <p class="text-amber-600 text-center mt-4">Mensaje enviado</p>
+        <p id="email-sent" class="text-amber-600 text-center mt-4 hidden">Mensaje enviado</p>
       </form>
     </div>
-    <p class="text-center text-darkgreenloki pt-16">© 2023 Mindblocks Loki</p>
+    <p class="text-center text-darkgreenloki pt-16">© 2023 Mindblocks</p>
   </section>
   <div class="bg-bottom bg-auto bg-repeat-y h-4 block bg-contain lg:bg-cover"></div>
+
+  <!--Style to avoid recaptcha shown outside the form-->
+  <style>
+    #contacto {
+      overflow: hidden;
+    }
+  </style>
+
+  <script>
+    function getParameterByName(name, url) {
+      if (!url) url = window.location.href;
+      name = name.replace(/[\[\]]/g, '\\$&');
+      var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+      if (!results) return null;
+      if (!results[2]) return '';
+      return decodeURIComponent(results[2].replace(/\+/g, ' '));
+    }
+
+    // Using the function to prepopulate form fields
+    window.onload = function () {
+      ["subject", "phone", "name", "email", "message"].forEach(function (id) {
+        let value = getParameterByName(id);
+        let element = document.getElementById(id)
+
+        if (value) {
+          element.value = value;
+
+          if (id == "phone") {
+            element.setAttribute("readonly", "readonly");
+            element.classList.add("opacity-70")
+          }
+        }
+      });
+    }
+
+    document.getElementById('email-sent').scrollIntoView({ behavior: 'smooth' });
+    document.getElementById('email-error').scrollIntoView({ behavior: 'smooth' });
+
+    async function onSubmit(token) {
+      const form = document.getElementById("contact-form");
+      document.getElementById('email-sent').classList.add('hidden');
+      document.getElementById('email-error').classList.add('hidden');
+
+      if (!form.checkValidity()) {
+        form.reportValidity()
+        return;
+      }
+
+      const button = document.querySelector('#contact-form button');
+      const spinner = document.getElementById('loading-spinner')
+      const submitText = document.getElementById('submit-text');
+
+      button.disabled = true;
+      button.classList.add('hidden');
+      spinner.classList.remove('hidden');
+
+      const formData = new FormData(form);
+
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: formData
+      });
+
+      const responseData = await response.json();
+
+      console.log(responseData);
+
+      if (response.ok) {
+        document.getElementById('email-sent').classList.remove('hidden');
+        form.reset();
+      } else {
+        document.getElementById('email-error').classList.remove('hidden');
+        document.getElementById('email-error').innerHTML = responseData.message;
+      }
+
+      button.disabled = false;
+      button.classList.remove('hidden');
+      spinner.classList.add('hidden');
+    }
+  </script>
   <!--Contacto End-->
 
   <!--AOS ANIMATION-->
