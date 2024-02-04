@@ -159,7 +159,7 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
                     </span>
                   </span>
                 </label>
-                <select id="plan" name="plan_display" required
+                <select id="plan" name="plan_display" required disabled
                   class="block w-full bg-yellowlokiDark rounded-lg p-1 py-1 px-2 focus:outline-none focus:ring-1 focus:ring-amber-500 invalid:border-red-500 invalid:border-red-500 focus:invalid:border-red-500 focus:invalid:border-red-500"
                   onchange="updatePlanLink()">
                   <option value="standard">Standard - UYU 450</option>
@@ -183,55 +183,21 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
                   </span>
                 </span>
               </label>
-              <input required readonly type="text" id="preapproval_id" name="preapproval_id" required
+              <input required readonly type="text" id="preapproval_id" name="preapproval_id" required disabled
                 class="lg:text-center w-full p-2 border border-grayloki rounded-md">
             </div>
 
             <!-- Payment Button -->
             <div id="mercadopagoContainer" class="mt-2 lg:mt-4 mx-auto text-center text-xs md:text-md">
-              <p>Por Favor, no olvides hacer click en el boton de <a
-                  class="px-1.5 md:px-4 py-0.5 md:py-1.5 rounded-md bg-mercadopago font-medium text-white">Volver al
-                  sitio</a> al finalizar
-                el
-                pago.</p>
-              <p class="mt-2">
-                <b>¡Es la única forma de completar el proceso de subscripción!</b>
-                <!-- Tooltip Icon and Text -->
-                <span class="hidden md:inline-block ml-1 relative cursor-help">
-                  <i class="fas fa-question-circle"></i>
-                  <!-- Tooltip Content -->
-                  <span
-                    class="absolute left-0 mt-2 p-2 w-96 bg-blackloki text-yellowlokiMedium rounded-md text-xs leading-tight"
-                    style="transform: translateX(-90%); z-index: 10; display: none;">
-                    Ante cualquier inconveniente comunicate con nosotros a traves de <a
-                      href="https://mindblocks.ai/loki#planes"
-                      class="gold-link">https://mindblocks.ai/loki#contacto</a>.
-                  </span>
-                </span>
-              </p>
-              <a id="mercadopagoButton">
-                <img class="mx-auto mt-6"
-                  src="https://http2.mlstatic.com/storage/dx-devsite/docs-assets/images/cow/cow-visual-wallet-default.es.png?v=4.8.3"
-                  alt="cow-visual-wallet-default">
-              </a>
+              <p>Por razones de soporte y con el objetivo ultimo de brindar un excelente servicio,
+                se encuentra suspendida temporalmente la posibilidad de acceder a las versiones
+                pagas de Loki, ante cualquier duda por favor contactenos a traves de: <a
+                href="https://mindblocks.ai/loki#planes"
+                class="gold-link">https://mindblocks.ai/loki#contacto</a>
+                </p>
             </div>
 
             <p id="subscription-error" class="text-red-500 mb-5 hidden">Mensaje de error</p>
-            <!-- Confirmation Button (hidden by default, will show after payment) -->
-            <div class="mt-2 mb-16 lg:mb-0 text-center">
-              <img id="loading-spinner" src="../images/spinner.gif" class="hidden my-4 mx-auto w-1/12" alt="Enviando...">
-              <button id="confirmationButton" data-sitekey="6LeCIFgoAAAAAOeUuh9LiJPG4drCh4EoO9BTn2cb"
-                data-callback='onSubmit' type="submit"
-                class="g-recaptcha px-7 py-3 my-4 rounded-md bg-darkgreenloki text-yellowlokiMedium font-medium hover:bg-greenloki hidden">
-                ¡Subscribirse a Loki!
-              </button>
-              <a href="https://wa.me/59893476717?text=Volvi!" id="lokiRedirect" target="_blank"
-                class="bg-greenloki text-lg md:text-base px-6 py-3 my-4 inline-block text-yellowlokiMedium rounded-full shadow-lg hover:opacity-70 transition ease-in-out duration-500 hidden"><img
-                  src="../images/whatsapp-icon.svg" alt="" width="26" height="26"
-                  class="float-left mr-3 filter-yellowlokiMedium">¡Volver con Loki!</a>
-              <p id="subscription-success" class="text-amber-600 text-center mt-4 hidden">¡La Subscripción se procesó
-                correctamente!</p>
-            </div>
           </form>
         </div>
       </section>
@@ -250,46 +216,6 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
 
   <!-- JavaScript to handle the payment and confirmation buttons -->
   <script>
-    async function onSubmit(token) {
-      const form = document.getElementById("paymentForm");
-      document.getElementById('subscription-error').classList.add('hidden');
-
-      if (!form.checkValidity()) {
-        form.reportValidity()
-        return;
-      }
-
-      const button = document.getElementById('confirmationButton');
-      const spinner = document.getElementById('loading-spinner')
-
-      button.disabled = true;
-      button.classList.add('hidden');
-      spinner.classList.remove('hidden');
-
-      const formData = new FormData(form);
-
-      const response = await fetch(form.action, {
-        method: 'POST',
-        body: formData
-      });
-
-      const responseData = await response.json();
-
-      console.log(responseData);
-
-      if (response.ok) {
-        document.getElementById('lokiRedirect').classList.remove('hidden');
-        document.getElementById('subscription-success').classList.remove('hidden');
-      } else {
-        document.getElementById('subscription-error').classList.remove('hidden');
-        document.getElementById('subscription-error').innerHTML = responseData.message;
-        button.disabled = false;
-        button.classList.remove('hidden');
-      }
-
-      spinner.classList.add('hidden');
-    }
-
     function adjustHeight() {
       const headerHeight = document.querySelector('header').offsetHeight;
       const mainDiv = document.querySelector('.main-container');
@@ -302,65 +228,8 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
     // Adjust height on window resize
     window.addEventListener('resize', adjustHeight);
 
-    function getParameterByName(name, localStorageCheck, url) {
-      if (!url) url = window.location.href;
-      name = name.replace(/[\[\]]/g, '\\$&');
-      var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
-        results = regex.exec(url);
-
-      if (!results && !localStorageCheck) return null;
-
-      if (!results && localStorageCheck) return (localStorage.getItem(name) || null);
-
-      if (!results[2]) return '';
-      return decodeURIComponent(results[2].replace(/\+/g, ' '));
-    }
-
-    function isValidPhone(value) {
-      const phonePattern = /^[+]?[\d\s-]{7,15}$/;
-      return phonePattern.test(value);
-    }
-
-    function isValidPlan(value) {
-      const allowedPlans = ["standard", "premium"];
-      return allowedPlans.includes(value);
-    }
-
-    // function isValidPreaprovalPlanId(value) {
-    //   const allowedPreapprovalPlanIds = ["P-0VW10508YD046711UL5Z4Z4A", "P-0VW10508YD046711UL5Z4Z4A"];
-    //   return allowedPreapprovalPlanIds.includes(value);
-    // }
-
     // Using the function to prepopulate form fields
     window.onload = function () {
-      ["phone", "plan", "preapproval_id"].forEach(function (id) {
-        var value = getParameterByName(id, id != 'preapproval_id');
-
-        if (id === 'phone' && !isValidPhone(value)) return;
-        if (id === 'plan' && !isValidPlan(value)) return;
-        // if (id === 'preapproval_id' && !isValidPreaprovalId(value)) return;
-
-        if (value) {
-          element = document.getElementById(id)
-          element.value = value;
-
-          if (id != "plan") {
-            element.setAttribute("readonly", "readonly");
-            element.classList.add("opacity-70");
-          }
-
-          localStorage.setItem(id, value);
-        }
-      });
-
-      if (document.getElementById("preapproval_id").value == "") {
-        updatePlanLink()
-      } else {
-        document.getElementById("plan").setAttribute("disabled", "disabled")
-        document.getElementById("mercadopagoContainer").classList.add('hidden');
-        document.getElementById('confirmationButton').classList.remove('hidden');
-      }
-
       // Display the tooltip on hover
       const tooltips = document.querySelectorAll('.cursor-help');
 
@@ -372,23 +241,6 @@ Presentamos a Loki, tu nuevo asistente virtual personalizado con todo el poder d
           tooltip.querySelector('span').style.display = 'none';
         });
       });
-    }
-
-    // Update the MercadoPago checkout button link given the plan
-    function updatePlanLink(e) {
-      plan = document.getElementById("plan")
-      localStorage.setItem("plan", plan.value);
-
-      document.getElementById("plan-hidden").value = plan.value;
-
-      if (plan.value == "standard") {
-        document.getElementById("mercadopagoButton").setAttribute("href", "https://www.mercadopago.com.uy/subscriptions/checkout?preapproval_plan_id=2c9380848b062228018b1172ba350580");
-        //document.getElementById("mercadopagoButton").setAttribute("href", "https://www.mercadopago.com.uy/subscriptions/checkout?preapproval_plan_id=2c9380848b053057018b0fb0da1b0541");
-        //document.getElementById("mercadopagoButton").setAttribute("href", "https://www.mercadopago.com.uy/subscriptions/checkout?preapproval_plan_id=2c9380848af39989018af8fd5c360464");
-      } else if (plan.value == "premium") {
-        document.getElementById("mercadopagoButton").setAttribute("href", "https://www.mercadopago.com.uy/subscriptions/checkout?preapproval_plan_id=2c9380848b053057018b117952ed062d");
-        //document.getElementById("mercadopagoButton").setAttribute("href", "https://www.mercadopago.com.uy/subscriptions/checkout?preapproval_plan_id=2c9380848af39989018af90c69c50469");
-      }
     }
 
   </script>
